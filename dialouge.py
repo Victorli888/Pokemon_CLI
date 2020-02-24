@@ -1,4 +1,4 @@
-class Profesor():
+class Proffesor():
      def __init__(self, name):
          self.name = name
 
@@ -11,6 +11,23 @@ class Profesor():
                "1st we have WingWa a Grass type"
                "\n2nd we have Totodile a Water type"
                "\n3rd we have Cyndaquill a Fire type")
+    def diag_3(self):
+        print("Great Pick please take care of them and cherish your Pokemon the rest of your life")
+        print("Before I forget go see Yash for your PokeDex")
 
 
-Profesor.diag_2()
+class Yash():
+
+    def diag_1(self):
+        print("Oh Hi there, I'm Yash. You're probably looking for the professor")
+
+    def diag_2(self):
+        print("Oh hi there, Oak asked me to give you something?")
+        print("... OH RIGHT, here you go.... A Pokedex, you can use it to log and learn more about Pokemon")
+
+
+
+
+
+
+

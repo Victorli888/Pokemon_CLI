@@ -1,5 +1,4 @@
-class all_poke(object):
-    def pokemon(self, hp, attk, def, sp_attk, sp_def,speed):
-        self.hp = hp
-        self.attk = attk
-        self.def = def
+class all_pokemon(object):
+    def __init__(self, hp, attk, def, sp_attk, sp_def,speed):
+        hp = self.hp
+        attk = self.attk

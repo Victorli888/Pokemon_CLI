@@ -12,5 +12,5 @@ def player_config():
         print("That's not what I asked for...")
         player_config()
 
-player_config()
-print(gender)
+    print("ahhh I see. Please tell me your name")
+
