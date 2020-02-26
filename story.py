@@ -7,8 +7,18 @@ def print_slow(str):
         time.sleep(10.0/type_speed)
 
 
+tap = input("[Press Enter] ")
 print("Welcome to the world of Pokemon! Where we enslave animals big "
            "and large to fight for our entertainment")
+
+class Single_events():  # FIND A WAY TO MAKE THIS WORK
+    def mom_intro(self):
+        print("You see Mom, Shes surprised you're awake")
+        print_slow("Player_name, You're finally up! I was worried you were going to sleep the whole day away!")
+        print_slow("I wanted to let you know that, Professor Oak wants to talk to you! "
+              "But you should do that after\n a bit of breakfast.")
+        Kitchen.door("standing")
+
 
 
 class Player_Configuration():
@@ -29,8 +39,10 @@ class Player_Configuration():
 
         print("ahhh I see. Please tell me your name")
         player_name = input("> ")
-        print_slow(f"Ok {player_name} welcome to Pallet Town your Pokemon Journey starts now!")
+        print_slow(f"Ok {player_name} welcome to Pallet Town your Pokemon Journey starts now!\n")
+        tap
         # I need to make sure that these save into a variable that can used globally without using Global.
+
 
 class Bedroom():
     def player_awake(self):
@@ -38,24 +50,25 @@ class Bedroom():
         ans = input("> ")
         if ans == "Bed":
             print("It's like 11AM are you sure you want to  go back to bed?")
+            tap
             print("[A] Yes I am sad and I want to go back to bed. or [B] No I'm going to do something today.")
             ans = input("> ")
             if ans == "A":
                 print("Congratulations you wasted an entire day!~~~")
-                Home.player_awake()
+                Bedroom.player_awake("awake")
             elif ans == "No":
                 print("That's the spirit!")
-                Home.player_room("standing")
+                Bedroom.player_room("standing")
         elif ans == "PC":
             print("You walk and sit at your PC")
-            Home.player_pc("PC")
+            Bedroom.player_pc("PC")
         elif ans == "Door":
             print("You exit your room and walk out your room.")
-            Home.door("kitchen")
+            Kitchen.door("kitchen")
 
         else:
             print("That is not a valid section please try again.")
-            Home.player_awake("Awake")
+            Bedroom.player_awake("Awake")
 
     def player_room(self):
         print("You find yourself standing in your room and you find 3 things to choose from [PC],[Door], and [Bed]")
@@ -63,15 +76,15 @@ class Bedroom():
         if ans == "Bed":
             print("You go to sleep")
             print_slow("........................................................................\n")
-            Home.player_awake("Awake")
+            Bedroom.player_awake("Awake")
         elif ans == "PC":
-            Home.player_pc("PC")
+            Bedroom.player_pc("PC")
         elif ans == "Door":
             print("You open the door and walkout")
-            Home.door("kitchen")
+            Kitchen.door("standing")
         else:
             print("That is not a valid selection.")
-            Home.player_room("standing")
+            Bedroom.player_room("standing")
 
     def player_pc(self):
         print("Your PC boots and you have 3 selections to pick from"
@@ -87,21 +100,14 @@ class Bedroom():
             pass
         elif ans == "Exit":
             print("Exiting PC...")
-            Home.player_room("standing")
+            Bedroom.player_room("standing")
 
         else:
             print("That is not a valid selection.")
-            Home.player_pc("PC")
+            Bedroom.player_pc("PC")
 
 
-
-
-    def mom_intro(self):  # make sure to incorporate print_slow()
-        print_slow("Player_name, You're finally up! I was worried you were going to sleep the whole day away!")
-        print_slow("I wanted to let you know that, Professor Oak wants to talk to you! But you should do that after"
-              "\n a bit of breakfast.")
-        Home.door("kitchen")
-
+class Kitchen():
     def door(self):
         print("You enter the living room What would you like to do now?"
               "\n[A] Eat Mom's delicious breakfast!"
@@ -109,26 +115,27 @@ class Bedroom():
               "\n[C] Leave the house.")
         ans = input("> ")
         if ans == "A":
-            Home.breakfast("delicious")
+            Kitchen.breakfast("delicious")
         elif ans == "B":
             pass  # Home.mom(talk)
         elif ans == "C":
-            Home.left_without_breaky("lol u are dead")
+            Kitchen.left_without_breaky("lol u are dead")
 
-
+    def mom(self):
+        pass # This is where I will put her dialogue options
     def left_without_breaky(self):
         print("You're really going to leave without eating Mom's famous breakfast? [Y] or [N]")
         ans = input("> ")
         if ans == "Y":
             print("You're absolutely heartless...")
-            input("[Press Enter] ")
+            tap
             print("As you leave the door you feel light headed")
             print_slow("3........2..........1......\n")
             print("You collapse on the ground and your vision goes to black.")
-            Home.player_awake("Awake")
+            Bedroom.player_awake("Awake")
         elif ans == "N":
             print("Good lad, Now go eat that breakfast.")
-            Home.door("kitchen")
+            Kitchen.door("kitchen")
         else:
             print("That is not a valid selection")
 
@@ -138,24 +145,22 @@ class Bedroom():
               "\n[B] Leave the house.")
         ans = input("> ")
         if ans == "A":
-            pass  # Home.mom("talk")
+            pass  # Kitchen.mom("talk")
         elif ans =="B":
             pass  # Next stage is outside
         else:
             print("That is not a valid selection")
     def breakfast(self):
         print("You eat a hearty delicious breakfast and you feel ready to tackle the day.")
-        Home.fin_breakfast("full")
+        Kitchen.fin_breakfast("full")
 
 
+class Oak_lab():
+    def lobby(self):
 
 
-
-
-
-
-
-#Player_Configuration.player_config()
-Home.player_awake("Awake")
-Home.breakfast("kitchen")
+# Player_Configuration.player_config("configure")
+# Bedroom.player_awake("Awake")
+Single_events.run_once("once")
+# Kitchen.breakfast("kitchen")
 
