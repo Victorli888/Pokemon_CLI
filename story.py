@@ -32,7 +32,7 @@ class Player_Configuration():
         print_slow(f"Ok {player_name} welcome to Pallet Town your Pokemon Journey starts now!")
         # I need to make sure that these save into a variable that can used globally without using Global.
 
-class Home(Player_Configuration):
+class Bedroom():
     def player_awake(self):
         print("You wake up in comfortable bed in room that Mom always keeps clean. You see a [PC],[Door], and [Bed].")
         ans = input("> ")
@@ -121,6 +121,7 @@ class Home(Player_Configuration):
         ans = input("> ")
         if ans == "Y":
             print("You're absolutely heartless...")
+            input("[Press Enter] ")
             print("As you leave the door you feel light headed")
             print_slow("3........2..........1......\n")
             print("You collapse on the ground and your vision goes to black.")
@@ -156,6 +157,5 @@ class Home(Player_Configuration):
 
 #Player_Configuration.player_config()
 Home.player_awake("Awake")
-Home.mom_intro("talk")
 Home.breakfast("kitchen")
 
