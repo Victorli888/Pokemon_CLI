@@ -26,7 +26,11 @@ class Yash():
         print("... OH RIGHT, here you go.... A Pokedex, you can use it to log and learn more about Pokemon")
 
 
-
+class Mom():
+    def diag_1(self):
+        print("Player_name, You're finally up! I was worried you were going to sleep the whole day away!")
+        print("I wanted to let you know that, Professor Oak wants to talk to you! But you should do that after"
+              "\n a bit of breakfast.")
 
 
 
