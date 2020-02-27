@@ -7,7 +7,9 @@ def print_slow(str):
         time.sleep(10.0/type_speed)
 
 
+invalid = "That is not a valid section please try again."
 tap = input("[Press Enter] ")
+
 print("Welcome to the world of Pokemon! Where we enslave animals big "
            "and large to fight for our entertainment")
 
@@ -56,8 +58,11 @@ class Bedroom():
             if ans == "A":
                 print("Congratulations you wasted an entire day!~~~")
                 Bedroom.player_awake("awake")
-            elif ans == "No":
+            elif ans == "B":
                 print("That's the spirit!")
+                Bedroom.player_room("standing")
+            else:
+                print(invalid)
                 Bedroom.player_room("standing")
         elif ans == "PC":
             print("You walk and sit at your PC")
@@ -67,7 +72,7 @@ class Bedroom():
             Kitchen.door("kitchen")
 
         else:
-            print("That is not a valid section please try again.")
+            print(invalid)
             Bedroom.player_awake("Awake")
 
     def player_room(self):
@@ -83,7 +88,7 @@ class Bedroom():
             print("You open the door and walkout")
             Kitchen.door("standing")
         else:
-            print("That is not a valid selection.")
+            print(invalid)
             Bedroom.player_room("standing")
 
     def player_pc(self):
@@ -103,12 +108,20 @@ class Bedroom():
             Bedroom.player_room("standing")
 
         else:
-            print("That is not a valid selection.")
+            print(invalid)
             Bedroom.player_pc("PC")
 
 
 class Kitchen():
+    def __init__(self, event):
+        self.event = event
+        self.event = True
+
     def door(self):
+        if self.event is True:
+            Single_events.mom_intro("talk")
+            self.event = False
+
         print("You enter the living room What would you like to do now?"
               "\n[A] Eat Mom's delicious breakfast!"
               "\n[B] Talk to Mom."
@@ -137,7 +150,7 @@ class Kitchen():
             print("Good lad, Now go eat that breakfast.")
             Kitchen.door("kitchen")
         else:
-            print("That is not a valid selection")
+            print(invalid)
 
     def fin_breakfast(self):
         print("What would you like to do next?"
@@ -155,12 +168,11 @@ class Kitchen():
         Kitchen.fin_breakfast("full")
 
 
-class Oak_lab():
-    def lobby(self):
+# class Oak_lab():
+#     def lobby(self):
 
 
 # Player_Configuration.player_config("configure")
-# Bedroom.player_awake("Awake")
-Single_events.run_once("once")
+Bedroom.player_awake("Awake")
 # Kitchen.breakfast("kitchen")
 
