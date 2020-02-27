@@ -14,12 +14,13 @@ print("Welcome to the world of Pokemon! Where we enslave animals big "
            "and large to fight for our entertainment")
 
 class Single_events():  # FIND A WAY TO MAKE THIS WORK
+
     def mom_intro(self):
         print("You see Mom, Shes surprised you're awake")
-        print_slow("Player_name, You're finally up! I was worried you were going to sleep the whole day away!")
-        print_slow("I wanted to let you know that, Professor Oak wants to talk to you! "
+        print("Player_name, You're finally up! I was worried you were going to sleep the whole day away!")
+        print("I wanted to let you know that, Professor Oak wants to talk to you! "
               "But you should do that after\n a bit of breakfast.")
-        Kitchen.door("standing")
+
 
 
 
@@ -113,14 +114,9 @@ class Bedroom():
 
 
 class Kitchen():
-    def __init__(self, event):
-        self.event = event
-        self.event = True
 
     def door(self):
-        if self.event is True:
-            Single_events.mom_intro("talk")
-            self.event = False
+        Single_events.mom_intro("talk")
 
         print("You enter the living room What would you like to do now?"
               "\n[A] Eat Mom's delicious breakfast!"
