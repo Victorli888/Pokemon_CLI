@@ -1,3 +1,9 @@
+def print_slow(str):
+    for letter in str:
+        sys.stdout.write(letter)
+        sys.stdout.flush()
+        time.sleep(10.0/type_speed)
+
 class Proffesor():
      def __init__(self, name):
          self.name = name
@@ -11,7 +17,7 @@ class Proffesor():
                "1st we have WingWa a Grass type"
                "\n2nd we have Totodile a Water type"
                "\n3rd we have Cyndaquill a Fire type")
-    def diag_3(self):
+     def diag_3(self):
         print("Great Pick please take care of them and cherish your Pokemon the rest of your life")
         print("Before I forget go see Yash for your PokeDex")
 
@@ -25,6 +31,8 @@ class Yash():
         print("Oh hi there, Oak asked me to give you something?")
         print("... OH RIGHT, here you go.... A Pokedex, you can use it to log and learn more about Pokemon")
 
+class nemisis:
+
 
 class Mom():
     def diag_1(self):
@@ -32,6 +40,6 @@ class Mom():
         print("I wanted to let you know that, Professor Oak wants to talk to you! But you should do that after"
               "\n a bit of breakfast.")
 
-
-
+    def diag_2(self):
+        print("Why hello dear! Is there something the matter?")
 

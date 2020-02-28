@@ -1,4 +1,4 @@
-class wild_poke(object):
+®class wild_poke(object):
 
     def __init__(self, pokemon_name):
         self.pokemon_name = pokemon_name

@@ -1,10 +1,4 @@
-import sys,time,random
-type_speed = 200
-def print_slow(str):
-    for letter in str:
-        sys.stdout.write(letter)
-        sys.stdout.flush()
-        time.sleep(10.0/type_speed)
+import sys,time,random,dialouge, Actions
 
 
 invalid = "That is not a valid section please try again."
@@ -16,10 +10,12 @@ print("Welcome to the world of Pokemon! Where we enslave animals big "
 class Single_events():  # FIND A WAY TO MAKE THIS WORK
 
     def mom_intro(self):
-        print("You see Mom, Shes surprised you're awake")
-        print("Player_name, You're finally up! I was worried you were going to sleep the whole day away!")
-        print("I wanted to let you know that, Professor Oak wants to talk to you! "
-              "But you should do that after\n a bit of breakfast.")
+        # x = True
+        # if x is True:
+        dialouge.Mom.diag_1("Intro")
+        # else:
+        #     print("Failed")
+
 
 
 
@@ -42,7 +38,7 @@ class Player_Configuration():
 
         print("ahhh I see. Please tell me your name")
         player_name = input("> ")
-        print_slow(f"Ok {player_name} welcome to Pallet Town your Pokemon Journey starts now!\n")
+        Actions.print_slow(f"Ok {player_name} welcome to Pallet Town your Pokemon Journey starts now!\n")
         tap
         # I need to make sure that these save into a variable that can used globally without using Global.
 
@@ -81,7 +77,7 @@ class Bedroom():
         ans = input("> ")
         if ans == "Bed":
             print("You go to sleep")
-            print_slow("........................................................................\n")
+            Actions.print_slow("........................................................................\n")
             Bedroom.player_awake("Awake")
         elif ans == "PC":
             Bedroom.player_pc("PC")
@@ -129,6 +125,9 @@ class Kitchen():
             pass  # Home.mom(talk)
         elif ans == "C":
             Kitchen.left_without_breaky("lol u are dead")
+        else:
+            print(invalid)
+            Kitchen.door("standing")
 
     def mom(self):
         pass # This is where I will put her dialogue options
@@ -138,15 +137,14 @@ class Kitchen():
         if ans == "Y":
             print("You're absolutely heartless...")
             tap
-            print("As you leave the door you feel light headed")
-            print_slow("3........2..........1......\n")
-            print("You collapse on the ground and your vision goes to black.")
+            Actions.Player_A.faint("dead")
             Bedroom.player_awake("Awake")
         elif ans == "N":
             print("Good lad, Now go eat that breakfast.")
             Kitchen.door("kitchen")
         else:
             print(invalid)
+            Kitchen.left_without_breaky("standing")
 
     def fin_breakfast(self):
         print("What would you like to do next?"
@@ -158,7 +156,9 @@ class Kitchen():
         elif ans =="B":
             pass  # Next stage is outside
         else:
-            print("That is not a valid selection")
+            print(invalid)
+            Kitchen.fin_breakfast("standing")
+
     def breakfast(self):
         print("You eat a hearty delicious breakfast and you feel ready to tackle the day.")
         Kitchen.fin_breakfast("full")
@@ -167,6 +167,8 @@ class Kitchen():
 # class Oak_lab():
 #     def lobby(self):
 
+class First_battle():
+    print("You walk with you new pokemon and a unknown person approaches you...")
 
 # Player_Configuration.player_config("configure")
 Bedroom.player_awake("Awake")
