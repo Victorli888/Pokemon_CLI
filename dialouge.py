@@ -1,8 +1,4 @@
-def print_slow(str):
-    for letter in str:
-        sys.stdout.write(letter)
-        sys.stdout.flush()
-        time.sleep(10.0/type_speed)
+
 
 class Proffesor():
      def __init__(self, name):
@@ -31,7 +27,8 @@ class Yash():
         print("Oh hi there, Oak asked me to give you something?")
         print("... OH RIGHT, here you go.... A Pokedex, you can use it to log and learn more about Pokemon")
 
-class nemisis:
+class nemisis():
+    pass
 
 
 class Mom():

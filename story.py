@@ -1,18 +1,19 @@
-import sys,time,random,dialouge, Actions
+import dialouge
+import Actions
 
 
-invalid = "That is not a valid section please try again."
+invalid = "\nThat is not a valid section please try again."
 tap = input("[Press Enter] ")
 
 print("Welcome to the world of Pokemon! Where we enslave animals big "
-           "and large to fight for our entertainment")
+           "and large to fight for our entertainment\n")
 
 class Single_events():  # FIND A WAY TO MAKE THIS WORK
 
     def mom_intro(self):
         # x = True
         # if x is True:
-        dialouge.Mom.diag_1("Intro")
+        dialouge.Mom.diag_1("talking")
         # else:
         #     print("Failed")
 
@@ -45,7 +46,8 @@ class Player_Configuration():
 
 class Bedroom():
     def player_awake(self):
-        print("You wake up in comfortable bed in room that Mom always keeps clean. You see a [PC],[Door], and [Bed].")
+        print("You wake up in comfortable bed in room that Mom always keeps clean. "
+              "You see 3 Options:\n[PC]\n[Door]\n[Bed].")
         ans = input("> ")
         if ans == "Bed":
             print("It's like 11AM are you sure you want to  go back to bed?")
@@ -167,8 +169,8 @@ class Kitchen():
 # class Oak_lab():
 #     def lobby(self):
 
-class First_battle():
-    print("You walk with you new pokemon and a unknown person approaches you...")
+# class First_battle():
+#     print("You walk with you new pokemon and a unknown person approaches you...")
 
 # Player_Configuration.player_config("configure")
 Bedroom.player_awake("Awake")
