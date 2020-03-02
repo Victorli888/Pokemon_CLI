@@ -166,8 +166,19 @@ class Kitchen():
         Kitchen.fin_breakfast("full")
 
 
-# class Oak_lab():
-#     def lobby(self):
+class Oak_lab():
+    def lobby(self):
+        print("You enter the famous Kanto Pokemon Laboratory. What would you like to do next? ")
+        print("[A] Look around\n[B] Approach Yash\n[C] Approach Professor Oak")
+        ans = input("> ")
+        if ans == "A":
+            pass  # Actions.look.lab
+        if ans == "B":
+            pass  # Yash Dialouge
+        if ans == "C":
+            pass  # professor Oak dialouge
+
+
 
 # class First_battle():
 #     print("You walk with you new pokemon and a unknown person approaches you...")
