@@ -21,7 +21,7 @@ class Proffesor():
 class Yash():
 
     def diag_1(self):
-        print("Oh Hi there, I'm Yash. You're probably looking for the professor")
+        print("Oh Hi there, I'm Yash. I'm pretty busy at the moment. I would go talk to the Professor first.")
 
     def diag_2(self):
         print("Oh hi there, Oak asked me to give you something?")

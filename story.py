@@ -1,12 +1,11 @@
-import dialouge
-import Actions
+import dialouge, Actions
 
 
 invalid = "\nThat is not a valid section please try again."
-tap = input("[Press Enter] ")
 
-print("Welcome to the world of Pokemon! Where we enslave animals big "
-           "and large to fight for our entertainment\n")
+
+print("Welcome to the world of Pokemon! Where animals big "
+           "and large are enslaved to fight for our entertainment\n")
 
 class Single_events():  # FIND A WAY TO MAKE THIS WORK
 
@@ -16,9 +15,6 @@ class Single_events():  # FIND A WAY TO MAKE THIS WORK
         dialouge.Mom.diag_1("talking")
         # else:
         #     print("Failed")
-
-
-
 
 
 class Player_Configuration():
@@ -40,7 +36,7 @@ class Player_Configuration():
         print("ahhh I see. Please tell me your name")
         player_name = input("> ")
         Actions.print_slow(f"Ok {player_name} welcome to Pallet Town your Pokemon Journey starts now!\n")
-        tap
+        Actions.tap("tap")
         # I need to make sure that these save into a variable that can used globally without using Global.
 
 
@@ -51,7 +47,7 @@ class Bedroom():
         ans = input("> ")
         if ans == "Bed":
             print("It's like 11AM are you sure you want to  go back to bed?")
-            tap
+            Actions.tap("tap")
             print("[A] Yes I am sad and I want to go back to bed. or [B] No I'm going to do something today.")
             ans = input("> ")
             if ans == "A":
@@ -138,7 +134,7 @@ class Kitchen():
         ans = input("> ")
         if ans == "Y":
             print("You're absolutely heartless...")
-            tap
+            Actions.tap("tap")
             Actions.Player_A.faint("dead")
             Bedroom.player_awake("Awake")
         elif ans == "N":
@@ -172,9 +168,13 @@ class Oak_lab():
         print("[A] Look around\n[B] Approach Yash\n[C] Approach Professor Oak")
         ans = input("> ")
         if ans == "A":
-            pass  # Actions.look.lab
+            Actions.Player_A.look("Lab")
         if ans == "B":
-            pass  # Yash Dialouge
+            print(" You find a slim man in lab coat that is busy at work")
+            Actions.tap()
+            dialouge.Yash.diag_1("Intro")
+            Actions.tap()
+            Oak_lab.lobby("lobby")
         if ans == "C":
             pass  # professor Oak dialouge
 
@@ -183,7 +183,8 @@ class Oak_lab():
 # class First_battle():
 #     print("You walk with you new pokemon and a unknown person approaches you...")
 
-# Player_Configuration.player_config("configure")
+Player_Configuration.player_config("configure")
 Bedroom.player_awake("Awake")
-# Kitchen.breakfast("kitchen")
+Kitchen.breakfast("kitchen")
+Oak_lab.lobby("ww")
 

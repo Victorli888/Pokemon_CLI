@@ -1,4 +1,7 @@
-import sys,time,story,random
+import sys,time,random
+
+def tap():
+    print(input("\n[Press Enter] "))
 
 def print_slow(str):
     type_speed = 200
@@ -18,14 +21,14 @@ def print_normal(str):
 class Player_A():
     def faint(self):
         print_slow("You're head feels light before you know it you fall to the ground, "
-                   "and just like that your vison goes\ndark\n")
+                   "and just like that your vision goes\ndark\n")
         print_slow("3.....2.....1......You have fainted\n")
-        story.tap
+        tap()
 
     def look(self):
         print("You take a long look at your surroundings.")
         print_slow("...............")
-        story.tap
+        tap()
 
     def battle(self):
         print("You are ready to battle. Please make a Choice\n")
@@ -40,9 +43,11 @@ class Player_A():
         elif input == "D":
             pass # create a method  in Actions.py that randomized the chance of being able to run.
         else:
-            print(story.invalid)
+            print("That wasn't a valid entry...")
+            tap()
 
     def run_away(self):
         print("You attempt to run away!")
         print_slow(".................")
-        story.tap
+        tap()
+
