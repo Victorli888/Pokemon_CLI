@@ -18,7 +18,7 @@ def print_normal(str):
         time.sleep(10.0 / type_speed)
 
 
-class Player_A():
+class Player_A(object):
     def faint(self):
         print_slow("You're head feels light before you know it you fall to the ground, "
                    "and just like that your vision goes\ndark\n")
@@ -45,6 +45,7 @@ class Player_A():
         else:
             print("That wasn't a valid entry...")
             tap()
+            Player_A.battle("battling")
 
     def run_away(self):
         print("You attempt to run away!")
