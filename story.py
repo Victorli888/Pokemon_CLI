@@ -1,5 +1,8 @@
 import dialouge, Actions
 
+def tap():
+    print(input("\n[Press Enter] "))
+
 
 invalid = "\nThat is not a valid section please try again."
 
@@ -31,12 +34,13 @@ class Player_Configuration():
 
         else:
             print("That's not what I asked for...")
-            Player_Configuration.player_config()
+            Player_Configuration.player_config("config")
 
         print("ahhh I see. Please tell me your name")
         player_name = input("> ")
-        Actions.print_slow(f"Ok {player_name} welcome to Pallet Town your Pokemon Journey starts now!\n")
-        Actions.tap("tap")
+        print(f"Ok {player_name} welcome to Pallet Town your Pokemon Journey starts now!\n")
+        Actions.tap()
+        return
         # I need to make sure that these save into a variable that can used globally without using Global.
 
 
@@ -47,12 +51,12 @@ class Bedroom():
         ans = input("> ")
         if ans == "Bed":
             print("It's like 11AM are you sure you want to  go back to bed?")
-            Actions.tap("tap")
+            Actions.tap()
             print("[A] Yes I am sad and I want to go back to bed. or [B] No I'm going to do something today.")
             ans = input("> ")
             if ans == "A":
                 print("Congratulations you wasted an entire day!~~~")
-                Bedroom.player_awake("awake")
+                Bedroom.player_awake("wakemeup")
             elif ans == "B":
                 print("That's the spirit!")
                 Bedroom.player_room("standing")
@@ -134,7 +138,7 @@ class Kitchen():
         ans = input("> ")
         if ans == "Y":
             print("You're absolutely heartless...")
-            Actions.tap("tap")
+            Actions.tap()
             Actions.Player_A.faint("dead")
             Bedroom.player_awake("Awake")
         elif ans == "N":
@@ -183,7 +187,7 @@ class Oak_lab():
 # class First_battle():
 #     print("You walk with you new pokemon and a unknown person approaches you...")
 
-Player_Configuration.player_config("configure")
+#Player_Configuration.player_config("configure")
 Bedroom.player_awake("Awake")
 Kitchen.breakfast("kitchen")
 Oak_lab.lobby("ww")
