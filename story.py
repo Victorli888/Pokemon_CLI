@@ -188,7 +188,10 @@ class Oak_lab():
 #     print("You walk with you new pokemon and a unknown person approaches you...")
 
 #Player_Configuration.player_config("configure")
-Bedroom.player_awake("Awake")
-Kitchen.breakfast("kitchen")
+# Bedroom.player_awake("Awake")
+"""
+I need a sonething here so that we play the mom intro only once
+"""
+# Kitchen.breakfast("kitchen")  # right now this should be removed as it serves no purpose
 Oak_lab.lobby("ww")
 
