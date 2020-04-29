@@ -182,7 +182,20 @@ class Oak_lab():
         if ans == "C":
             pass  # professor Oak dialouge
 
+class Grass():
+    """
+    This is where a Random Pokemon will appear, and where you will find a random item if you search long enough.
+    This will show case the inventory system and the battle system as well as the capture system
+    """
+    pass
 
+class Rival():
+    """
+    This will be the final boss for this project, This is where you will need to acess the inventory system to use
+    items. and use your extra pokemon to fight your rival. This will show case a different conditions, i.e
+    (Not being able to run away or attempting to capture a trainers pokemon.
+    """
+    pass
 
 # class First_battle():
 #     print("You walk with you new pokemon and a unknown person approaches you...")
