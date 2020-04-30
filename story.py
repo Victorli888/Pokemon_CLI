@@ -1,38 +1,30 @@
-import dialouge, Actions
+import dialouge
+import Actions
 
 # to simply show that this is an invalid choice
 invalid = "\nThat is not a valid section please try again."
 
 
-print("Welcome to the world of Pokemon! Where animals big "
-           "and large are enslaved to fight for our entertainment\n")
-
-
-
-
 def player_config():
-    print("\nPlease tell me are you a Boy or a Girl?")
+    print("\nFirst, Please tell me are you a Boy or a Girl?")
     player_gender = input("> ")
 
     if player_gender == "Boy" or player_gender == "Girl":
-        print(player_gender)
+        print("Excellent!")
 
     else:
-        print("That's not what I asked for...")
+        print(invalid)
         player_config()
 
-    print("ahhh I see. Please tell me your name")
-    player_name = input("> ")
-    print(f"Ok {player_name} welcome to Pallet Town your Pokemon Journey starts now!\n")
+    print("Now, Please tell me your name.")
+    select_name = input("> ")
+    print(f"Ok {select_name} welcome to Pallet Town your Pokemon Journey starts now!\n")
     Actions.tap()
-    return player_name
-
-
+    return select_name
 
 
 def player_awake():
-    print("You wake up in comfortable bed in room that Mom always keeps clean. "
-              "You see 3 Options:\n[PC]\n[Door]\n[Bed].")
+    print("You wake up in comfortable bed in room that Mom always keeps clean.You see 3 Options:\n[PC]\n[Door]\n[Bed].")
     ans = input("> ")
     if ans == "Bed":
         print("It's like 11AM are you sure you want to  go back to bed?")
@@ -40,17 +32,18 @@ def player_awake():
         print("[A] Yes I am sad and I want to go back to bed. or [B] No I'm going to do something today.")
         ans = input("> ")
         if ans == "A":
-                print("Congratulations you wasted an entire day!~~~")
-                player_awake()
+            print("Congratulations you wasted an entire day!~~~")
+            player_awake()
         elif ans == "B":
-                print("That's the spirit!")
-                player_room()
+            print("That's the spirit!")
+            player_room()
         else:
-                print(invalid)
-                player_room()
+            print(invalid)
+            player_room()
     elif ans == "PC":
         print("You walk and sit at your PC")
         player_pc()
+
     elif ans == "Door":
         print("You exit your room and walk out your room.")
         door()
@@ -59,8 +52,9 @@ def player_awake():
         print(invalid)
         player_awake()
 
+
 def player_room():
-    print("You find yourself standing in your room and you find 3 things to choose from [PC],[Door], and [Bed]")
+    print("You find yourself standing in your room and you find 3 things to choose from \n[PC],\n[Door]\n[Bed]")
     ans = input("> ")
     if ans == "Bed":
         print("You go to sleep")
@@ -77,10 +71,7 @@ def player_room():
 
 
 def player_pc():
-    print("Your PC boots and you have 3 selections to pick from"
-              "\n> [Pokebox]"
-              "\n> [Bank]"
-              "\n> [Exit]")
+    print("Your PC boots and you have 3 selections to pick from\n> [Pokebox]\n> [Bank]\n> [Exit]")
     ans = input("> ")
     if ans == "Pokebox":
         print("In development")
@@ -90,82 +81,85 @@ def player_pc():
         pass
     elif ans == "Exit":
         print("Exiting PC...")
-        player_room("standing")
+        player_room()
 
     else:
         print(invalid)
-        player_pc("PC")
+        player_pc()
 
 
 def door():
 
-    print("You enter the living room What would you like to do now?"
-              "\n[A] Eat Mom's delicious breakfast!"
-              "\n[B] Talk to Mom."
-              "\n[C] Leave the house.")
+    print("""You enter the living room What would you like to do now?
+    \n[A] Eat Mom's delicious breakfast!
+    \n[B] Talk to Mom.
+    \n[C] Leave the house.""")
     ans = input("> ")
     if ans == "A":
-        breakfast("delicious")
+        breakfast()
     elif ans == "B":
         pass  # Home.mom(talk)
     elif ans == "C":
-        left_without_breaky("lol u are dead")
+        left_without_breaky()
     else:
         print(invalid)
-        door("standing")
+        door()
 
-def mom(self):
-        pass # This is where I will put her dialogue options
-def left_without_breaky(self):
+
+def mom_intro_event():
+    dialouge.mom_diag_1()
+
+
+def left_without_breaky():
     print("You're really going to leave without eating Mom's famous breakfast? [Y] or [N]")
     ans = input("> ")
     if ans == "Y":
-        print("You're absolutely heartless...")
+        print("You leave at your own loss then...")
         Actions.tap()
-        Actions.Player_A.faint("dead")
-        player_awake("Awake")
+        Actions.faint()
+        player_awake()
     elif ans == "N":
         print("Good lad, Now go eat that breakfast.")
-        door("kitchen")
+        door()
     else:
         print(invalid)
-        left_without_breaky("standing")
+        left_without_breaky()
 
-def fin_breakfast(self):
-    print("What would you like to do next?"
-              "\n[A] Talk to Mom."
-              "\n[B] Leave the house.")
+
+def fin_breakfast():
+    print("What would you like to do next?\n[A] Talk to Mom.\n[B] Leave the house.")
     ans = input("> ")
     if ans == "A":
         pass  # Kitchen.mom("talk")
-    elif ans =="B":
+    elif ans == "B":
         pass  # Next stage is outside
     else:
         print(invalid)
-        fin_breakfast("standing")
+        fin_breakfast()
 
-def breakfast(self):
+
+def breakfast():
     print("You eat a hearty delicious breakfast and you feel ready to tackle the day.")
-    fin_breakfast("full")
+    fin_breakfast()
 
 
-
-def lobby(self):
+def lobby():
     print("You enter the famous Kanto Pokemon Laboratory. What would you like to do next? ")
     print("[A] Look around\n[B] Approach Yash\n[C] Approach Professor Oak")
     ans = input("> ")
     if ans == "A":
-        Actions.Player_A.look("Lab")
+        Actions.look()
     if ans == "B":
         print(" You find a slim man in lab coat that is busy at work")
         Actions.tap()
-        dialouge.Yash.diag_1("Intro")
+        dialouge.yash_diag_1()
         Actions.tap()
-        lobby("lobby")
+        lobby()
     if ans == "C":
         pass  # professor Oak dialouge
 
-def Grass():
+
+def grass():
     """
     This is where a Random Pokemon will appear, and where you will find a random item if you search long enough.
     This will show case the inventory system and the battle system as well as the capture system
@@ -173,7 +167,8 @@ def Grass():
     print("You find a large field of tall grass would you like to? ")
     pass
 
-def Rival():
+
+def rival():
     """
     This will be the final boss for this project, This is where you will need to acess the inventory system to use
     items. and use your extra pokemon to fight your rival. This will show case a different conditions, i.e
@@ -181,11 +176,14 @@ def Rival():
     """
     pass
 
-player_config()
+
+# Intro
+print("""Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!
+This world is inhabited by creatures called POKEMON! For some people, POKEMON are pets.
+Others use them for fights. Myself...I study POKEMON as a profession.""")
+
+player_name = player_config()
 player_awake()
-"""
-Play mom intro once create
-"""
+mom_intro_event()
 # breakfast()  # right now this should be removed as it serves no purpose
 lobby()
-
