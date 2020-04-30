@@ -31,5 +31,5 @@ def mom_diag_1():
     print("I wanted to let you know that, Professor Oak wants to talk to you! But you should do that after"
               "\n a bit of breakfast.")
 def mom_diag_2():
-        print("Why hello dear! Is there something the matter?")
+        print("Why hello dear! I'm a little busy with house work so why don't you play outside?")
 
