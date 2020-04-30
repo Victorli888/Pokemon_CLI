@@ -3,6 +3,15 @@ import Actions
 
 # to simply show that this is an invalid choice
 invalid = "\nThat is not a valid section please try again."
+indev = print("This section is in development.")
+
+def pokemon_intro():
+    print("Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!")
+    Actions.tap()
+    print("This world is inhabited by creatures called POKEMON! For some people, POKEMON are pets.")
+    Actions.tap()
+    print("Others use them for fights. Myself...I study POKEMON as a profession.")
+    Actions.tap()
 
 
 def player_config():
@@ -74,10 +83,10 @@ def player_pc():
     print("Your PC boots and you have 3 selections to pick from\n> [Pokebox]\n> [Bank]\n> [Exit]")
     ans = input("> ")
     if ans == "Pokebox":
-        print("In development")
+        indev
         pass
     elif ans == "Bank":
-        print("In development")
+        indev
         pass
     elif ans == "Exit":
         print("Exiting PC...")
@@ -96,11 +105,12 @@ def door():
     \n[C] Leave the house.""")
     ans = input("> ")
     if ans == "A":
-        breakfast()
+        breakfast_eaten()
     elif ans == "B":
-        pass  # Home.mom(talk)
+        dialouge.mom_diag_2()
+        door()
     elif ans == "C":
-        left_without_breaky()
+        without_breakfast()
     else:
         print(invalid)
         door()
@@ -110,7 +120,7 @@ def mom_intro_event():
     dialouge.mom_diag_1()
 
 
-def left_without_breaky():
+def without_breakfast():
     print("You're really going to leave without eating Mom's famous breakfast? [Y] or [N]")
     ans = input("> ")
     if ans == "Y":
@@ -123,24 +133,49 @@ def left_without_breaky():
         door()
     else:
         print(invalid)
-        left_without_breaky()
+        without_breakfast()
+
+
+def breakfast_eaten():
+    print("You eat a hearty delicious breakfast and you feel ready to tackle the day.")
+    fin_breakfast()
 
 
 def fin_breakfast():
     print("What would you like to do next?\n[A] Talk to Mom.\n[B] Leave the house.")
     ans = input("> ")
     if ans == "A":
+        indev
         pass  # Kitchen.mom("talk")
     elif ans == "B":
+        indev
         pass  # Next stage is outside
     else:
         print(invalid)
         fin_breakfast()
 
 
-def breakfast():
-    print("You eat a hearty delicious breakfast and you feel ready to tackle the day.")
-    fin_breakfast()
+def outside_world():
+    print("You see gorgeous blue skies, the field of short green grass that surround your small town. You see..."
+          "\n [A] The Pallet Town PokeLab"
+          "\n [B] The Westward Ocean Coastline"
+          "\n [C] You're House.")
+    print("Which would you like to visit first?")
+    ans = input("> ")
+    if ans == "A":
+        print("You make your way over to the Pallet Town PokeLab")
+        Actions.tap()
+        print("As you approach the building the automatic doors swing open and you find yourself in the lobby.")
+        lobby()
+    elif ans == "B":
+        indev
+        pass  # Add method for the "West Ward Ocean Coast line", and loop back to outside world
+    elif ans == "C":
+        print("You take a look front yard and the house you grew up in...")
+        Actions.tap()
+        print("You walk towards the door and enter your childhood home.")
+        indev
+        pass  # door() method needs to be fixed so the player can back track into his room and exit w/0 replaying intro.
 
 
 def lobby():
@@ -150,7 +185,7 @@ def lobby():
     if ans == "A":
         Actions.look()
     if ans == "B":
-        print(" You find a slim man in lab coat that is busy at work")
+        print(" You find a man in lab coat that is busy at work")
         Actions.tap()
         dialouge.yash_diag_1()
         Actions.tap()
@@ -178,10 +213,7 @@ def rival():
 
 
 # Intro
-print("""Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!
-This world is inhabited by creatures called POKEMON! For some people, POKEMON are pets.
-Others use them for fights. Myself...I study POKEMON as a profession.""")
-
+pokemon_intro()
 player_name = player_config()
 player_awake()
 mom_intro_event()
