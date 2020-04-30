@@ -1,7 +1,7 @@
 import sys,time,random
 
 def tap():
-    print(input("\n[Press Enter] "))
+    print(input("\n[Press Enter] to continue.. "))
 
 def print_slow(str):
     type_speed = 200
