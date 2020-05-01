@@ -3,7 +3,8 @@ import Actions
 
 # to simply show that this is an invalid choice
 invalid = "\nThat is not a valid section please try again."
-indev = print("This section is in development.")
+indev = "This section is in development."
+
 
 def pokemon_intro():
     print("Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!")
@@ -31,6 +32,15 @@ def player_config():
     Actions.tap()
     return select_name
 
+
+def mom_intro_event():
+    print("You gently open your eyes and you see a more than familiar face.")
+    Actions.tap()
+    print("You see your mother staring you straight in the face. gitty with excitement.")
+    Actions.tap()
+    dialouge.mom_diag_1(player_name)
+    print("She sneaks out the room closing the door behind her.")
+    player_awake()
 
 def player_awake():
     print("You wake up in comfortable bed in room that Mom always keeps clean.You see 3 Options:\n[PC]\n[Door]\n[Bed].")
@@ -83,10 +93,10 @@ def player_pc():
     print("Your PC boots and you have 3 selections to pick from\n> [Pokebox]\n> [Bank]\n> [Exit]")
     ans = input("> ")
     if ans == "Pokebox":
-        indev
+        print(indev)
         pass
     elif ans == "Bank":
-        indev
+        print(indev)
         pass
     elif ans == "Exit":
         print("Exiting PC...")
@@ -116,10 +126,6 @@ def door():
         door()
 
 
-def mom_intro_event():
-    dialouge.mom_diag_1()
-
-
 def without_breakfast():
     print("You're really going to leave without eating Mom's famous breakfast? [Y] or [N]")
     ans = input("> ")
@@ -145,10 +151,10 @@ def fin_breakfast():
     print("What would you like to do next?\n[A] Talk to Mom.\n[B] Leave the house.")
     ans = input("> ")
     if ans == "A":
-        indev
+        print(indev)
         pass  # Kitchen.mom("talk")
     elif ans == "B":
-        indev
+        print(indev)
         pass  # Next stage is outside
     else:
         print(invalid)
@@ -168,30 +174,55 @@ def outside_world():
         print("As you approach the building the automatic doors swing open and you find yourself in the lobby.")
         lobby()
     elif ans == "B":
-        indev
+        print(indev)
         pass  # Add method for the "West Ward Ocean Coast line", and loop back to outside world
     elif ans == "C":
         print("You take a look front yard and the house you grew up in...")
         Actions.tap()
         print("You walk towards the door and enter your childhood home.")
-        indev
+        print(indev)
         pass  # door() method needs to be fixed so the player can back track into his room and exit w/0 replaying intro.
 
 
 def lobby():
-    print("You enter the famous Kanto Pokemon Laboratory. What would you like to do next? ")
+    print("You're in the famous Kanto Pokemon Laboratory. What would you like to do next? ")
     print("[A] Look around\n[B] Approach Yash\n[C] Approach Professor Oak")
     ans = input("> ")
     if ans == "A":
         Actions.look()
+        print("You see all sorts of machines and gadgets. You even see Pokemon relaxing and waddling around.")
+        Actions.tap()
+        print("After glancing around you go back to the task at hand.")
+        Actions.tap()
+        lobby()
     if ans == "B":
         print(" You find a man in lab coat that is busy at work")
         Actions.tap()
         dialouge.yash_diag_1()
-        Actions.tap()
         lobby()
     if ans == "C":
-        pass  # professor Oak dialouge
+        oak_intro()
+
+
+def oak_intro():
+    print("You walk up to the leading Poke expert in your region.")
+    Actions.tap()
+    dialouge.proffesor_diag_1(player_name)
+    print("[A] Yes I'm ready.\n[B] No I'd like to look around a bit longer")
+    ans = input("> ")
+    if ans == "A":
+        poke_selection()
+    elif ans == "B":
+        print("You go back to the front lobby of the PokeLab.")
+        Actions.tap()
+        lobby()
+    else:
+        print(invalid)
+        oak_intro()
+
+
+def poke_selection():
+    pass  # Player will select pokemon here
 
 
 def grass():
@@ -211,11 +242,13 @@ def rival():
     """
     pass
 
-
+player_name = "Ash"
 # Intro
-pokemon_intro()
-player_name = player_config()
-player_awake()
+# pokemon_intro()
+# player_name = player_config()
 mom_intro_event()
+# player_awake()
 # breakfast()  # right now this should be removed as it serves no purpose
+# lobby()
+
 lobby()
