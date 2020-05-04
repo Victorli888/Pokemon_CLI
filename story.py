@@ -151,11 +151,14 @@ def fin_breakfast():
     print("What would you like to do next?\n[A] Talk to Mom.\n[B] Leave the house.")
     ans = input("> ")
     if ans == "A":
-        print(indev)
-        pass  # Kitchen.mom("talk")
+        print("You walk towards your mom and see that she's washing dishes at the kitchen sink")
+        Actions.tap()
+        dialouge.mom_diag_2()
+        fin_breakfast()
     elif ans == "B":
-        print(indev)
-        pass  # Next stage is outside
+        print("You place your hand on the door and walk out into wonderful outdoors.")
+        Actions.tap()
+        outside_world()
     else:
         print(invalid)
         fin_breakfast()
@@ -246,9 +249,9 @@ player_name = "Ash"
 # Intro
 # pokemon_intro()
 # player_name = player_config()
-mom_intro_event()
+# mom_intro_event()
 # player_awake()
 # breakfast()  # right now this should be removed as it serves no purpose
 # lobby()
 
-lobby()
+fin_breakfast()
