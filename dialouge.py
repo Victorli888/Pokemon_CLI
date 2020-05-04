@@ -21,14 +21,15 @@ def proffesor_diag_2():
 def proffesor_diag_3():
     print("Great Pick please take care of them and cherish your Pokemon the rest of your life")
     Actions.tap()
-    print("Before I forget go see Yash for your PokeDex")
+    print("Before I forget go see my assistant for your PokeDex")
     Actions.tap()
 
-def yash_diag_1():
-        print("Oh Hi there, I'm Yash. I'm pretty busy at the moment. I would go talk to the Professor first.")
+def assistant_diag_1():
+        print("Oh Hi there, I'm Proffesor Oak's Lab Assitant. I'm pretty busy at the moment. why don't you speak with\n"
+              "the Professor first.")
         Actions.tap()
 
-def yash_diag_2():
+def assistant_diag_2():
         print("Oh hi there, Oak asked me to give you something?")
         Actions.tap()
         print("... OH RIGHT, here you go.... A Pokedex, you can use it to log and learn more about Pokemon")
