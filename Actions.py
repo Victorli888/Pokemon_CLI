@@ -4,7 +4,7 @@ import time
 
 # Use tap() action to simulate player tapping the a button for games
 def tap():
-    print(input("\nTap [Enter] to continue.. "))
+    print(input("\nTap [Enter] to continue... "))
 
 def print_slow(str):
     type_speed = 200
