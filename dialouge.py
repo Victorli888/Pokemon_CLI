@@ -43,6 +43,6 @@ def mom_diag_1(player_name):
               "\na bit of breakfast.")
     Actions.tap()
 def mom_diag_2():
-    print("Why hello dear! I'm a little busy with house work so why don't you play outside? ")
+    print("Why hello dear! I'm a little busy with house work, so why don't you go enjoy how nice it is outside. ")
     Actions.tap()
 
