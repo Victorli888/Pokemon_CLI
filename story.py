@@ -46,25 +46,25 @@ def mom_intro_event():
 def player_awake():
     print("You wake up in comfortable bed in room that Mom always keeps clean.You see 3 Options:\n[PC]\n[Door]\n[Bed].")
     ans = input("> ")
-    if ans == "Bed":
+    if ans == "Bed":  # Go to bed
         print("It's like 11AM are you sure you want to  go back to bed?")
         Actions.tap()
         print("[A] Yes I am sad and I want to go back to bed. or [B] No I'm going to do something today.")
         ans = input("> ")
-        if ans == "A":
+        if ans == "A":  # I'm sure, Go to bed
             print("Congratulations you wasted an entire day!~~~")
             player_awake()
-        elif ans == "B":
+        elif ans == "B":  # Don't go to bed
             print("That's the spirit!")
             player_room()
         else:
             print(invalid)
             player_room()
-    elif ans == "PC":
+    elif ans == "PC":  # open PC
         print("You walk and sit at your PC")
         player_pc()
 
-    elif ans == "Door":
+    elif ans == "Door":  # Exit to the living room
         print("You exit your room and walk out your room.")
         door()
 
@@ -76,13 +76,13 @@ def player_awake():
 def player_room():
     print("You find yourself standing in your room and you find 3 things to choose from \n[PC],\n[Door]\n[Bed]")
     ans = input("> ")
-    if ans == "Bed":
+    if ans == "Bed":  # go to Bed
         print("You go to sleep")
         Actions.print_slow("........................................................................\n")
         player_awake()
-    elif ans == "PC":
+    elif ans == "PC":  # Open PC
         player_pc()
-    elif ans == "Door":
+    elif ans == "Door":  # Exit to living room
         print("You open the door and walkout")
         door()
     else:
@@ -93,13 +93,13 @@ def player_room():
 def player_pc():
     print("Your PC boots and you have 3 selections to pick from\n> [Pokebox]\n> [Bank]\n> [Exit]")
     ans = input("> ")
-    if ans == "Pokebox":
+    if ans == "Pokebox":  # View pokebox
         print(indev)
         pass
-    elif ans == "Bank":
+    elif ans == "Bank":  # View Bank
         print(indev)
         pass
-    elif ans == "Exit":
+    elif ans == "Exit":  # Exit
         print("Exiting PC...")
         player_room()
 
@@ -115,12 +115,12 @@ def door():
     \n[B] Talk to Mom.
     \n[C] Leave the house.""")
     ans = input("> ")
-    if ans == "A":
+    if ans == "A":  # Eat Breakfast
         breakfast_eaten()
-    elif ans == "B":
+    elif ans == "B":  # Talk to Mom
         dialouge.mom_diag_2()
         door()
-    elif ans == "C":
+    elif ans == "C":  # Leave House without breakfast
         without_breakfast()
     else:
         print(invalid)
@@ -138,10 +138,10 @@ def door_2():
        \n[A] Talk to Mom.
        \n[B] Leave the house.""")
     ans = input("> ")
-    if ans == "A":
+    if ans == "A":  # talk to mom
         dialouge.mom_diag_2()
         door_2()
-    elif ans == "B":
+    elif ans == "B":  #  Exit
         outside_world()
     else:
         print(invalid)
@@ -151,12 +151,12 @@ def door_2():
 def without_breakfast():
     print("You're really going to leave without eating Mom's famous breakfast? [Y] or [N]")
     ans = input("> ")
-    if ans == "Y":
+    if ans == "Y":  # Leave with an empty stomach
         print("You leave at your own loss then...")
         Actions.tap()
         Actions.faint()
         player_awake()
-    elif ans == "N":
+    elif ans == "N":  # go back to eat breakfast
         print("Good lad, Now go eat that breakfast.")
         door()
     else:
@@ -172,12 +172,12 @@ def breakfast_eaten():
 def fin_breakfast():
     print("What would you like to do next?\n[A] Talk to Mom.\n[B] Leave the house.")
     ans = input("> ")
-    if ans == "A":
+    if ans == "A":  # Talk to Mom
         print("You walk towards your mom and see that she's washing dishes at the kitchen sink")
         Actions.tap()
         dialouge.mom_diag_2()
         fin_breakfast()
-    elif ans == "B":
+    elif ans == "B":  # Leave house
         print("You place your hand on the door and walk out into wonderful outdoors.")
         Actions.tap()
         outside_world()
@@ -193,15 +193,15 @@ def outside_world():
           "\n [C] You're House.")
     print("Which would you like to visit first?")
     ans = input("> ")
-    if ans == "A":
+    if ans == "A":  # For Pallet Town Poke Lab
         print("You make your way over to the Pallet Town PokeLab")
         Actions.tap()
         print("As you approach the building the automatic doors swing open and you find yourself in the lobby.")
         lobby()
-    elif ans == "B":
+    elif ans == "B":  # For Westward Ocean Coastline
         print(indev)
         pass  # Add method for the "West Ward Ocean Coast line", and loop back to outside world
-    elif ans == "C":
+    elif ans == "C":  # For Home
         print("You take a look front yard and the house you grew up in...")
         Actions.tap()
         print("You walk towards the door and enter your childhood home.")
@@ -213,24 +213,24 @@ def outside_world():
 
 def lobby():
     print("You're in the famous Kanto Pokemon Laboratory. What would you like to do next? ")
-    print("[A] Look around\n[B] Approach Yash\n[C] Approach Professor Oak\n[D] Exit Outside")
+    print("[A] Look around\n[B] Approach Lab Assistant\n[C] Approach Professor Oak\n[D] Exit Outside")
     ans = input("> ")
-    if ans == "A":
+    if ans == "A":  # Look around
         Actions.look()
         print("You see all sorts of machines and gadgets. You even see Pokemon relaxing and waddling around.")
         Actions.tap()
         print("After glancing around you go back to the task at hand.")
         Actions.tap()
         lobby()
-    elif ans == "B":
+    elif ans == "B":  # Approach  Lab Assistant
         print(" You find a man in lab coat that is busy at work")
         Actions.tap()
-        dialouge.yash_diag_1()
+        dialouge.assistant_diag_1()
         lobby()
-    elif ans == "C":
+    elif ans == "C":  # Approach Professor
         oak_intro()
 
-    elif ans == "D":
+    elif ans == "D":  # Exit lab
         print("You turn around and exit back from where you entered.")
         Actions.tap()
         outside_world()
@@ -259,6 +259,8 @@ def oak_intro():
 # After completing oak_intro player will select pokemon here
 def poke_selection():
     pass  # After completing oak_intro player will select pokemon here
+        # Also Include Pokedex story line
+
 
 
 def grass():
