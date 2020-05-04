@@ -42,6 +42,7 @@ def mom_intro_event():
     print("She sneaks out the room closing the door behind her.")
     player_awake()
 
+
 def player_awake():
     print("You wake up in comfortable bed in room that Mom always keeps clean.You see 3 Options:\n[PC]\n[Door]\n[Bed].")
     ans = input("> ")
@@ -126,6 +127,27 @@ def door():
         door()
 
 
+"""
+door_2 serves as a checkpoint when the player finishes eating breakfast, so that they aren't required to eat breakfast
+every time they enter the house
+"""
+
+
+def door_2():
+    print("""You enter the living room What would you like to do now?
+       \n[A] Talk to Mom.
+       \n[B] Leave the house.""")
+    ans = input("> ")
+    if ans == "A":
+        dialouge.mom_diag_2()
+        door_2()
+    elif ans == "B":
+        outside_world()
+    else:
+        print(invalid)
+        door_2()
+
+
 def without_breakfast():
     print("You're really going to leave without eating Mom's famous breakfast? [Y] or [N]")
     ans = input("> ")
@@ -183,13 +205,15 @@ def outside_world():
         print("You take a look front yard and the house you grew up in...")
         Actions.tap()
         print("You walk towards the door and enter your childhood home.")
-        print(indev)
-        pass  # door() method needs to be fixed so the player can back track into his room and exit w/0 replaying intro.
+        Actions.tap()
+        door_2()
+    else:
+        print(invalid)
 
 
 def lobby():
     print("You're in the famous Kanto Pokemon Laboratory. What would you like to do next? ")
-    print("[A] Look around\n[B] Approach Yash\n[C] Approach Professor Oak")
+    print("[A] Look around\n[B] Approach Yash\n[C] Approach Professor Oak\n[D] Exit Outside")
     ans = input("> ")
     if ans == "A":
         Actions.look()
@@ -198,13 +222,21 @@ def lobby():
         print("After glancing around you go back to the task at hand.")
         Actions.tap()
         lobby()
-    if ans == "B":
+    elif ans == "B":
         print(" You find a man in lab coat that is busy at work")
         Actions.tap()
         dialouge.yash_diag_1()
         lobby()
-    if ans == "C":
+    elif ans == "C":
         oak_intro()
+
+    elif ans == "D":
+        print("You turn around and exit back from where you entered.")
+        Actions.tap()
+        outside_world()
+    else:
+        print(invalid)
+        lobby()
 
 
 def oak_intro():
@@ -224,8 +256,9 @@ def oak_intro():
         oak_intro()
 
 
+# After completing oak_intro player will select pokemon here
 def poke_selection():
-    pass  # Player will select pokemon here
+    pass  # After completing oak_intro player will select pokemon here
 
 
 def grass():
@@ -245,6 +278,7 @@ def rival():
     """
     pass
 
+
 player_name = "Ash"
 # Intro
 # pokemon_intro()
@@ -253,5 +287,4 @@ player_name = "Ash"
 # player_awake()
 # breakfast()  # right now this should be removed as it serves no purpose
 # lobby()
-
-fin_breakfast()
+door()
