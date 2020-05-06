@@ -142,7 +142,7 @@ def door_2():
         dialouge.mom_diag_2()
         door_2()
     elif ans == "B":  #  Exit
-        outside_world()
+        pallet_town()
     else:
         print(invalid)
         door_2()
@@ -180,13 +180,13 @@ def fin_breakfast():
     elif ans == "B":  # Leave house
         print("You place your hand on the door and walk out into wonderful outdoors.")
         Actions.tap()
-        outside_world()
+        pallet_town()
     else:
         print(invalid)
         fin_breakfast()
 
 
-def outside_world():
+def pallet_town():
     print("You see gorgeous blue skies, the field of short green grass that surround your small town. You see..."
           "\n [A] The Pallet Town PokeLab"
           "\n [B] The Westward Ocean Coastline"
@@ -199,6 +199,9 @@ def outside_world():
         print("As you approach the building the automatic doors swing open and you find yourself in the lobby.")
         lobby()
     elif ans == "B":  # For Westward Ocean Coastline
+        print("You look left and you walk down the path to the Westward Ocean Coastline")
+        Actions.tap()
+        westward_coast()
         print(indev)
         pass  # Add method for the "West Ward Ocean Coast line", and loop back to outside world
     elif ans == "C":  # For Home
@@ -209,6 +212,39 @@ def outside_world():
         door_2()
     else:
         print(invalid)
+        pallet_town()
+
+
+"""
+When the player obtains a Surfing Pokemon from Oak and surfs to Kanto from Westward Coast line is where i'll conclude
+the game.
+
+I may or may not add a fishing game element to the game, depending on its complexity, Most likely I will. It will have
+a time with 3 dot prompts if you miss the third dot prompt you will fail to catch a fish. If I decide to go ahead with
+this the Surf pokemon that is obtained to end the game should be obtained from this method.
+"""
+
+
+def westward_coast():
+    print("You reach the beach with the warm sun hitting your back and the fresh ocean breeze hitting your face ")
+    Actions.tap()
+    print("What do you decide to do next?\n[A] Use Pokemon and Surf to the Kanto Region\n[B] Go Fish\n[C] Turn Back ")
+    ans = input(">")
+    if ans == "A":  # Surf to Kanto
+        print(" You don't have any pokemon that can do that!")  # I think this is a great point to end the game..
+        Actions.tap()
+        westward_coast()
+    elif ans == "B":  # Go Fish
+        print("You decide its a wonderful day to go fishing! but then you realize you don't even have a fishing rod...")
+        Actions.tap()
+        westward_coast()
+    elif ans == "C":  # Turn around
+        print("As gorgeous and relaxing it is you decide to turn back and head back to pallet town")
+        Actions.tap()
+        pallet_town()
+    else:
+        print(invalid)
+        westward_coast()
 
 
 def lobby():
@@ -233,7 +269,7 @@ def lobby():
     elif ans == "D":  # Exit lab
         print("You turn around and exit back from where you entered.")
         Actions.tap()
-        outside_world()
+        pallet_town()
     else:
         print(invalid)
         lobby()
@@ -289,4 +325,4 @@ player_name = "Ash"
 # player_awake()
 # breakfast()  # right now this should be removed as it serves no purpose
 # lobby()
-door()
+pallet_town()
