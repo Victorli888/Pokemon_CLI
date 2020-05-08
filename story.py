@@ -292,7 +292,10 @@ def oak_intro():
         print(invalid)
         oak_intro()
 
-
+"""
+I will need to add the pokemon the user picked into to his working inventory system in poke_selection. At the moment
+we only have dialogue.
+"""
 def poke_selection():
     print("Follow me over here then! We have 3 Pokemon to adopt from.")
     Actions.tap()
