@@ -141,7 +141,7 @@ def door_2():
     if ans == "A":  # talk to mom
         dialouge.mom_diag_2()
         door_2()
-    elif ans == "B":  #  Exit
+    elif ans == "B":  # Exit
         pallet_town()
     else:
         print(invalid)
@@ -197,7 +197,7 @@ def pallet_town():
         print("You make your way over to the Pallet Town PokeLab")
         Actions.tap()
         print("As you approach the building the automatic doors swing open and you find yourself in the lobby.")
-        lobby()
+        poke_lab()
     elif ans == "B":  # For Westward Ocean Coastline
         print("You look left and you walk down the path to the Westward Ocean Coastline")
         Actions.tap()
@@ -247,7 +247,7 @@ def westward_coast():
         westward_coast()
 
 
-def lobby():
+def poke_lab():
     print("You're in the famous Kanto Pokemon Laboratory. What would you like to do next? ")
     print("[A] Look around\n[B] Approach Lab Assistant\n[C] Approach Professor Oak\n[D] Exit Outside")
     ans = input("> ")
@@ -257,12 +257,12 @@ def lobby():
         Actions.tap()
         print("After glancing around you go back to the task at hand.")
         Actions.tap()
-        lobby()
+        poke_lab()
     elif ans == "B":  # Approach  Lab Assistant
         print(" You find a man in lab coat that is busy at work")
         Actions.tap()
         dialouge.assistant_diag_1()
-        lobby()
+        poke_lab()
     elif ans == "C":  # Approach Professor
         oak_intro()
 
@@ -272,7 +272,7 @@ def lobby():
         pallet_town()
     else:
         print(invalid)
-        lobby()
+        poke_lab()
 
 
 def oak_intro():
@@ -282,21 +282,71 @@ def oak_intro():
     print("[A] Yes I'm ready.\n[B] No I'd like to look around a bit longer")
     ans = input("> ")
     if ans == "A":
+
         poke_selection()
     elif ans == "B":
         print("You go back to the front lobby of the PokeLab.")
         Actions.tap()
-        lobby()
+        poke_lab()
     else:
         print(invalid)
         oak_intro()
 
 
-# After completing oak_intro player will select pokemon here
 def poke_selection():
-    pass  # After completing oak_intro player will select pokemon here
-        # Also Include Pokedex story line
+    print("Follow me over here then! We have 3 Pokemon to adopt from.")
+    Actions.tap()
+    print("Please choose from either, \n[A] Cyndaquil\n[B] Totodile\n[C] Chikorita")
+    ans = input("> ")
+    if ans == "A":  # choose Cyndaquil
+        print(" This is Cyndiquil, a fire type! Are you sure this is who you want? [Y] or [N]")
+        ans = input("> ")
+        if ans == "Y":
+            print("You Chose Cyndiquil!")
+            Actions.tap()
+            pass  # pokelab_2 w/ updated dialouges
+        elif ans == "N":
+            print("No problem. take you time!")
+            Actions.tap()
+            poke_selection()
+        else:
+            print(invalid)
+            poke_selection()
+    elif ans == "B":  # choose Totodile
+        print(" This is Totodile, a water type! Are you sure this is who you want? [Y] or [N]")
+        ans = input("> ")
+        if ans == "Y":
+            print("You Chose Totodile!")
+            Actions.tap()
+            pass  # pokelab_2 w/ updated dialouges
+        elif ans == "N":
+            print("No problem. take you time!")
+            Actions.tap()
+            poke_selection()
+        else:
+            print(invalid)
+            poke_selection()
+    elif ans == "C":  # choose Chikorita
+        print(" This is Chikorita, a grass type! Are you sure this is who you want? [Y] or [N]")
+        ans = input("> ")
+        if ans == "Y":
+            print("You chose Chikorita!")
+            Actions.tap()
+            pass  # pokelab_2 w/ updated dialouges
+        elif ans == "N":
+            print("No problem. take you time!")
+            Actions.tap()
+            poke_selection()
+        else:
+            print(invalid)
+            poke_selection()
+    else:
+        print(invalid)
+        poke_selection()
 
+
+def aquire_pokedex():
+    pass  # Acquire Pokedex after selecting Pokemon
 
 
 def grass():
@@ -325,4 +375,4 @@ player_name = "Ash"
 # player_awake()
 # breakfast()  # right now this should be removed as it serves no purpose
 # lobby()
-pallet_town()
+oak_intro()
