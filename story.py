@@ -292,10 +292,15 @@ def oak_intro():
         print(invalid)
         oak_intro()
 
+
 """
 I will need to add the pokemon the user picked into to his working inventory system in poke_selection. At the moment
-we only have dialogue.
+we only have dialogue. 
+
+I need to create a variable to save the pokemon that the user inputs
 """
+
+
 def poke_selection():
     print("Follow me over here then! We have 3 Pokemon to adopt from.")
     Actions.tap()
@@ -307,7 +312,7 @@ def poke_selection():
         if ans == "Y":
             print("You Chose Cyndiquil!")
             Actions.tap()
-            pass  # pokelab_2 w/ updated dialouges
+            post_poke_diag()
         elif ans == "N":
             print("No problem. take you time!")
             Actions.tap()
@@ -321,7 +326,7 @@ def poke_selection():
         if ans == "Y":
             print("You Chose Totodile!")
             Actions.tap()
-            pass  # pokelab_2 w/ updated dialouges
+            post_poke_diag()
         elif ans == "N":
             print("No problem. take you time!")
             Actions.tap()
@@ -335,7 +340,7 @@ def poke_selection():
         if ans == "Y":
             print("You chose Chikorita!")
             Actions.tap()
-            pass  # pokelab_2 w/ updated dialouges
+            post_poke_diag()
         elif ans == "N":
             print("No problem. take you time!")
             Actions.tap()
@@ -347,26 +352,68 @@ def poke_selection():
         print(invalid)
         poke_selection()
 
-
-def aquire_pokedex():
-    pass  # Acquire Pokedex after selecting Pokemon
+# After selecting a pokemon new dialouge will follow next time the player enters the pokelab
 
 
-def grass():
-    """
-    This is where a Random Pokemon will appear, and where you will find a random item if you search long enough.
-    This will show case the inventory system and the battle system as well as the capture system
-    """
-    print("You find a large field of tall grass would you like to? ")
-    pass
+def post_poke_diag():
+    print("Congratulations on your new pokemon!")
+    Actions.tap()
+    print("As partners you'll travel the world and learn from each other.")
+    Actions.tap()
+    print("I wish you good luck!")
+    Actions.tap()
+    poke_lab2()
+
+
+def poke_lab2():
+    print("[A] Look around\n[B] Approach Lab Assistant\n[C] Approach Professor Oak\n[D] Exit Outside")
+    ans = input("> ")
+    if ans == "A":  # Look around
+        Actions.look()
+        print("You see all sorts of machines and gadgets. You even see Pokemon relaxing and waddling around.")
+        Actions.tap()
+        print("After glancing around you go back to the task at hand.")
+        Actions.tap()
+        poke_lab2()
+    elif ans == "B":  # Approach  Lab Assistant
+        print(" You find a man in lab coat that is busy at work")
+        Actions.tap()
+        dialouge.assistant_diag_1()
+        poke_lab2()
+    elif ans == "C":  # Approach Professor
+        print("What are you still doing here? Adventure is out there waiting for you!")
+        poke_lab2()
+
+    elif ans == "D":  # Exit lab
+        print("You turn around and exit back from where you entered.")
+        Actions.tap()
+        rival()  # This is where you battle your rival.
+
+    else:
+        print(invalid)
+        poke_lab2()
+
+# Scratch this part
+# def grass():
+#     """
+#     This is where a Random Pokemon will appear, and where you will find a random item if you search long enough.
+#     This will show case the inventory system and the battle system as well as the capture system
+#     """
+#     print("You find a large field of tall grass would you like to? ")
+#     pass
 
 
 def rival():
     """
-    This will be the final boss for this project, This is where you will need to acess the inventory system to use
+    This will be the final boss for this project, This is where you will need to access the inventory system to use
     items. and use your extra pokemon to fight your rival. This will show case a different conditions, i.e
     (Not being able to run away or attempting to capture a trainers pokemon.
     """
+
+    """
+    Every event will need a new set of condition statements until we get to the end of the story.
+    """
+    pallet_town()
     pass
 
 
