@@ -25,7 +25,6 @@ def player_config():
     else:
         print(invalid)
         player_config()
-
     print("Now, Please tell me your name.")
     select_name = input("> ")
     print(f"Ok {select_name} welcome to Pallet Town your Pokemon Journey starts now!\n")
@@ -38,7 +37,7 @@ def mom_intro_event():
     Actions.tap()
     print("You see your mother staring you straight in the face. gitty with excitement.")
     Actions.tap()
-    dialouge.mom_diag_1(player_name)
+    dialouge.mom_diag_1(select_name)
     print("She sneaks out the room closing the door behind her.")
     player_awake()
 
@@ -297,7 +296,7 @@ def oak_intro():
 I will need to add the pokemon the user picked into to his working inventory system in poke_selection. At the moment
 we only have dialogue. 
 
-I need to create a variable to save the pokemon that the user inputs
+I need to create a variable to save the pokemon that the user inputs, [Selection will be hard coded for Cyndiquil]
 """
 
 
@@ -393,7 +392,9 @@ def poke_lab2():
         print(invalid)
         poke_lab2()
 
-# Scratch this part
+"""
+scratched for now, can be re-implemented after 1.0 release. after poke_lab2
+"""
 # def grass():
 #     """
 #     This is where a Random Pokemon will appear, and where you will find a random item if you search long enough.
