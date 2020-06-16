@@ -1,5 +1,6 @@
 import dialouge
 import Actions
+import inventory
 
 # to simply show that this is an invalid choice
 invalid = "\nThat is not a valid section please try again."
@@ -409,6 +410,9 @@ def rival():
     This will be the final boss for this project, This is where you will need to access the inventory system to use
     items. and use your extra pokemon to fight your rival. This will show case a different conditions, i.e
     (Not being able to run away or attempting to capture a trainers pokemon.
+
+    Rival will ask you questions about your pokemon adventure, mention the west coast shore line, and abandon
+    his pokemon when you beat him. The player should then go to the west coast shore line to finish the game.
     """
 
     """
@@ -426,4 +430,12 @@ player_name = "Ash"
 # player_awake()
 # breakfast()  # right now this should be removed as it serves no purpose
 # lobby()
-oak_intro()
+# oak_intro()
+
+curr_potion = inventory.items["potion"]
+if curr_potion > 0:
+    print(curr_potion)
+else:
+    print("No more potions")
+
+
