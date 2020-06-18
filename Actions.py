@@ -33,22 +33,6 @@ def look():
         print_slow("...............")
         tap()
 
-def battle():
-    print("You are ready to battle. Please make a Choice\n")
-    print("[A} Attack\n[B] Items\n[C] Pokemon\n[D] Run")
-    ans = input("> ")
-    if input == "A":
-        pass # create attacks ( make another script for move lists)
-    elif input == "B":
-        pass # from the inventory, create a menu of items that is avalible for the player to use.
-    elif input == "C":
-        pass # create a menu for Pokemon avaliable for the Player to call upon.
-    elif input == "D":
-        pass # create a method  in Actions.py that randomized the chance of being able to run.
-    else:
-        print("That wasn't a valid entry...")
-        tap()
-        battle("battling")
 
 def run_away():
         print("You attempt to run away!")
