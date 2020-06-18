@@ -6,7 +6,10 @@ class Pokemon:
         self.name = name
         self.region = region
         self.poke_type = poke_type
-        self. level = level
+        self.level = level
+
+
+
     # Use variables and print string to describe pokemon
     def pokedex(self):
         Actions.tap()
