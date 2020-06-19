@@ -49,8 +49,10 @@ class TrainerBattle:
         ans = input("Choice:  ")
         if ans == "A":
             inventory.items["potion"] -= 1
+            print("Potion used to regain 20HP")
         elif ans == "B":
             inventory.items["super potion"] -= 1
+            print("Super Potion used 50 HP was regained")
         elif ans == "C":
             print("In development")
         else:
@@ -68,7 +70,7 @@ class TrainerBattle:
             self.fight()
         elif ans == "B":
             self.items()
-        elif ans == "D":
+        elif ans == "C":
             self.pokeball()
         elif ans == "D":
             print("You can't flee from a trainer battle!")
@@ -82,6 +84,6 @@ totodile1 = poke_characters.totodile_l5
 cyndiquil1 = poke_characters.cyndiquil_l5
 
 first_battle = TrainerBattle("Rival Gary", cyndiquil1, totodile1)
-# first_battle.intro()
-# first_battle.battle()
+first_battle.intro()
+first_battle.battle()
 first_battle.items()
