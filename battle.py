@@ -1,51 +1,88 @@
 import Actions
-class wild_poke(object):
+import poke_characters
+import inventory
+
+invalid = "\nThat is not a valid section please try again."
+"""
+Implementation for wild pokemon battles saved for v1.1.
+"""
+
+
+class WildPokemon(object):
 
     def __init__(self, pokemon_name):
         self.pokemon_name = pokemon_name
-        print(f"A wild {pokemon_name} appeared...")
 
-pidgey = wild_poke("Pidgey")  # del this
-rattata = wild_poke("Rattata")  # del this
+    def intro(self):
+        print(f"A wild {self.pokemon_name} appeared...")
+
 
 """
-Hard code for Cyndiquil as player picked pokemon.
+pokemon1 = player's pokemon
+pokemon2 = NPC's pokemon
 """
-class Trainer_battle():
-    def __init__(self, trainer_name, pokemon):
+
+
+class TrainerBattle:
+    def __init__(self, trainer_name, pokemon1, pokemon2):
         self.trainer_name = trainer_name
-        self.pokemon = pokemon
-        print(f"Trainer {trainer_name} wants to battle...")
+        self.pokemon2 = pokemon2
+        self.pokemon1 = pokemon1
+
+    def intro(self):
+        print(f"Trainer {self.trainer_name} wants to battle...")
         Actions.tap()
-        print(f"Trainer {trainer_name} sent out {pokemon}")
+        print(f"Trainer {self.trainer_name} sent out {self.pokemon2.name}")
         Actions.tap()
+
+    def fight(self):
+        print(f"{self.pokemon1.name} wants to fight!")
+        Actions.tap()
+        ans = input("Please select a move:")
+        print(f"{self.pokemon1.mv1}\n{self.pokemon1.mv2}")
+
+    def items(self):
+        print("Which item would you like to use?")
+        print("[A] Potions x [{}] ".format(inventory.items["potion"]))
+        print("[B] Super Potion x [{}]".format(inventory.items["super potion"]))
+        print("[C] Cancel, Go back")
+        ans = input("Choice:  ")
+        if ans == "A":
+            inventory.items["potion"] -= 1
+        elif ans == "B":
+            inventory.items["super potion"] -= 1
+        elif ans == "C":
+            print("In development")
+        else:
+            self.items()
+
+        ans = input()
+
+
+    def pokeball(self):
+        pass
 
     def battle(self):
-        print("What will you do? [A] Fight [B] Items [C] Pokeball [D] Flee ")
-        ans = input("Type answer here: ")
+        print("What will you do? \n[A] Fight \n[B] Items \n[C] Pokeball \n[D] Flee ")
+        ans = input("\nType answer here: ")
         if ans == "A":
-            pass  # fight()
+            self.fight()
         elif ans == "B":
-            pass  # items()
+            self.items()
         elif ans == "D":
-            pass  # pokeball()
+            self.pokeball()
         elif ans == "D":
-            pass  # flee()
+            print("You can't flee from a trainer battle!")
+            self.battle()
+        else:
+            print(invalid)
+            self.battle()
 
 
+totodile1 = poke_characters.totodile_l5
+cyndiquil1 = poke_characters.cyndiquil_l5
 
-
-
-
-
-
-
-
-
-# intro for a battle works, I think I should make a switch case or a dictionary
-# that pulls these names to make it seem like it randomly appears when wandering through a bush
-
-
-
-
-
+first_battle = TrainerBattle("Rival Gary", cyndiquil1, totodile1)
+# first_battle.intro()
+# first_battle.battle()
+first_battle.items()
