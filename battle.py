@@ -58,7 +58,6 @@ class TrainerBattle:
 
         ans = input()
 
-
     def pokeball(self):
         pass
 
