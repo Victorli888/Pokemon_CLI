@@ -1,5 +1,7 @@
 import Actions
-
+"""
+pokedex feature to be added on a later date. expected for v1.1 release.
+"""
 class Pokemon:
     # init needed  variables for Poke dex
     def __init__(self, name, region, poke_type, level):
