@@ -9,7 +9,6 @@ def tap():
 
 
 def chance(success_rate):
-    percentage = list(range(1, 11))
     result = random.random() * 100
     if success_rate >= result:
         return True  # action attempt passes
@@ -56,6 +55,3 @@ def run_away():
         print("You successfully got away!")
     else:
         print("You failed to get away.")
-
-
-run_away()

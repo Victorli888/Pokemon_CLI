@@ -33,12 +33,12 @@ def player_config():
     return select_name
 
 
-def mom_intro_event():
+def mom_intro_event(player_name):
     print("You gently open your eyes and you see a more than familiar face.")
     Actions.tap()
     print("You see your mother staring you straight in the face. gitty with excitement.")
     Actions.tap()
-    dialouge.mom_diag_1(select_name)
+    dialouge.mom_diag_1(player_name)
     print("She sneaks out the room closing the door behind her.")
     player_awake()
 
@@ -264,7 +264,7 @@ def poke_lab():
         dialouge.assistant_diag_1()
         poke_lab()
     elif ans == "C":  # Approach Professor
-        oak_intro()
+        oak_intro(player_name)
 
     elif ans == "D":  # Exit lab
         print("You turn around and exit back from where you entered.")
@@ -275,7 +275,7 @@ def poke_lab():
         poke_lab()
 
 
-def oak_intro():
+def oak_intro(player_name):
     print("You walk up to the leading Poke expert in your region.")
     Actions.tap()
     dialouge.proffesor_diag_1(player_name)
@@ -290,7 +290,7 @@ def oak_intro():
         poke_lab()
     else:
         print(invalid)
-        oak_intro()
+        oak_intro(player_name)
 
 
 """
@@ -393,6 +393,7 @@ def poke_lab2():
         print(invalid)
         poke_lab2()
 
+
 """
 scratched for now, can be re-implemented after 1.0 release. after poke_lab2
 """
@@ -422,20 +423,12 @@ def rival():
     pass
 
 
-player_name = "Ash"
+player_name = "ash"  # place holder for now
 # Intro
 # pokemon_intro()
 # player_name = player_config()
-# mom_intro_event()
+mom_intro_event(player_name)
 # player_awake()
 # breakfast()  # right now this should be removed as it serves no purpose
 # lobby()
 # oak_intro()
-
-curr_potion = inventory.items["potion"]
-if curr_potion > 0:
-    print(curr_potion)
-else:
-    print("No more potions")
-
-

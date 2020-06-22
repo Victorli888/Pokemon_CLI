@@ -104,8 +104,8 @@ class Pokemon:
             print("Attack was a miss...")
 
 
-cyndiquil_l5 = Pokemon("Cyndiquil", 39, 52, 43, 65, "tackle", "smokescreen", " ", " ")
-chikorita_l5 = Pokemon("Chikorita", 45, 49, 65, 45, "tackle", "growl", " ", " ")
-totodile_l5 = Pokemon("Totodile", 50, 65, 64, 43, "scratch", "leer", " ", " ")
+cyndiquil_l5 = Pokemon("Cyndiquil", 39, 52, 43, 65, "Tackle", "Smokescreen", " ", " ")
+chikorita_l5 = Pokemon("Chikorita", 45, 49, 65, 45, "Tackle", "Growl", " ", " ")
+totodile_l5 = Pokemon("Totodile", 50, 65, 64, 43, "Scatch", "Leer", " ", " ")
 
-totodile_l5.smokescreen()
+
