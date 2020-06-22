@@ -1,7 +1,7 @@
 import Actions
 import poke_characters
 import inventory
-
+indev = "In Development"
 invalid = "\nThat is not a valid section please try again."
 """
 Implementation for wild pokemon battles saved for v1.1.
@@ -38,8 +38,18 @@ class TrainerBattle:
     def fight(self):
         print(f"{self.pokemon1.name} wants to fight!")
         Actions.tap()
-        ans = input("Please select a move:")
-        print(f"{self.pokemon1.mv1}\n{self.pokemon1.mv2}")
+        print(f"[A] {self.pokemon1.mv1}\n[B] {self.pokemon1.mv2}\n")
+        ans = input("Please select a move: ")
+        if ans == "A":
+            print(indev)
+            pass
+        elif ans == "B":
+            print(indev)
+            pass
+        else:
+            print(invalid)
+            TrainerBattle.fight(self)
+
 
     def items(self):
         print("Which item would you like to use?")
@@ -54,13 +64,15 @@ class TrainerBattle:
             inventory.items["super potion"] -= 1
             print("Super Potion used 50 HP was regained")
         elif ans == "C":
-            print("In development")
+            print(indev)
         else:
+            print(invalid)
             self.items()
 
         ans = input()
 
     def pokeball(self):
+        print(indev)
         pass
 
     def battle(self):
@@ -86,4 +98,4 @@ cyndiquil1 = poke_characters.cyndiquil_l5
 first_battle = TrainerBattle("Rival Gary", cyndiquil1, totodile1)
 first_battle.intro()
 first_battle.battle()
-first_battle.items()
+
