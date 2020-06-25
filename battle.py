@@ -35,6 +35,8 @@ class TrainerBattle:
         print(f"Trainer {self.trainer_name} sent out {self.pokemon2.name}")
         Actions.tap()
 
+    """NOTE: Link Pokemon moves with fight moves here!"""
+
     def fight(self):
         print(f"{self.pokemon1.name} wants to fight!")
         Actions.tap()
@@ -48,7 +50,7 @@ class TrainerBattle:
             pass
         else:
             print(invalid)
-            TrainerBattle.fight(self)
+            self.fight()
 
 
     def items(self):

@@ -9,7 +9,7 @@ effect in game when called on this will be under
 
 
 class Pokemon:
-    def __init__(self, name, hp, attack, defence, speed, mv1, mv2, mv3, mv4):
+    def __init__(self, name, hp, attack, defence, speed, mv1, mv2, mv3, mv4,):
         self.name = name
         self.hp = hp
         self.attack = attack
@@ -19,6 +19,7 @@ class Pokemon:
         self.mv2 = mv2
         self.mv3 = mv3
         self.mv4 = mv4
+
 
     def tackle(self):
         print(f"{self.name} Used Tackle...")
@@ -104,8 +105,12 @@ class Pokemon:
             print("Attack was a miss...")
 
 
-cyndiquil_l5 = Pokemon("Cyndiquil", 39, 52, 43, 65, "Tackle", "Smokescreen", " ", " ")
+
+
+cyndiquil_l5 = Pokemon("Cyndiquil", 39, 52, 43, 65, "Tackle", "Smokescreen", " ", " ",)
 chikorita_l5 = Pokemon("Chikorita", 45, 49, 65, 45, "Tackle", "Growl", " ", " ")
-totodile_l5 = Pokemon("Totodile", 50, 65, 64, 43, "Scatch", "Leer", " ", " ")
+totodile_l5 = Pokemon("Totodile", 50, 65, 64, 43, "Scratch", "Leer", " ", " ")
+
+cyndiquil_l5.hp -= 5
 
 
