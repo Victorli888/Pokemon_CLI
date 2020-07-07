@@ -1,5 +1,6 @@
 import Actions
 
+
 """
 mv1 = moveset 1 (attack move, power up move , etc)
 pokemon_l5 = pokemon name and its level
@@ -9,17 +10,12 @@ effect in game when called on this will be under
 
 
 class Pokemon:
-    def __init__(self, name, hp, attack, defence, speed, mv1, mv2, mv3, mv4,):
+    def __init__(self, name, hp, attack, defence, speed):
         self.name = name
         self.hp = hp
         self.attack = attack
         self.defence = defence
         self.speed = speed
-        self.mv1 = mv1
-        self.mv2 = mv2
-        self.mv3 = mv3
-        self.mv4 = mv4
-
 
     def tackle(self):
         print(f"{self.name} Used Tackle...")
@@ -43,6 +39,7 @@ class Pokemon:
             return damage
         else:
             print("Attack was a miss...")
+            return 0
 
     def scratch(self):
         print(f"{self.name} Used Scratch...")
@@ -58,6 +55,7 @@ class Pokemon:
             return damage
         else:
             print("Attack was a miss...")
+            return 0
 
     def smokescreen(self):
         print(f'{self.name} used Smokescreen...')
@@ -73,6 +71,7 @@ class Pokemon:
             return def_down
         else:
             print("Attack was a miss...")
+            return 0
 
     def leer(self):
         print(f"{self.name} used Leer...")
@@ -88,6 +87,7 @@ class Pokemon:
             return def_down
         else:
             print("Attack was a miss...")
+            return 0
 
     def growl(self):
         print(f"{self.name} used Growl...")
@@ -103,14 +103,25 @@ class Pokemon:
             return atk_down
         else:
             print("Attack was a miss...")
+            return 0
 
 
+cyndiquil_l5 = Pokemon("Cyndiquil", 56, 552, 43, 65)
+# chikorita_l5 = Pokemon("Chikorita", 45, 49, 65, 45)
+totodile_l5 = Pokemon("Totodile", 50, 65, 64, 43)
+
+p_cyndiquil_l5 = {"name": "Cyndiquil", "hp": 39, "atk": 52, "def": 43, "spd": 65}
+scratch = Pokemon.scratch
+smokescreen = Pokemon.smokescreen
+cy_l5 = {"move1": scratch, "move2": smokescreen}
 
 
-cyndiquil_l5 = Pokemon("Cyndiquil", 39, 52, 43, 65, "Tackle", "Smokescreen", " ", " ",)
-chikorita_l5 = Pokemon("Chikorita", 45, 49, 65, 45, "Tackle", "Growl", " ", " ")
-totodile_l5 = Pokemon("Totodile", 50, 65, 64, 43, "Scratch", "Leer", " ", " ")
+"""
+DEVELOPER NOTES: 
+Remove Move_set from Pokemon Class and apply them to a new move list script [ DON't CREATE A FACTORY INSIDE A FACTORY
+keep "Tackle", "Smokescreen" etc as string values for battle.py and only apply the methods when needed.
 
-cyndiquil_l5.hp -= 5
+story.py is when the actual instances of a pokemon hp and stats save it into a hash map.
 
-
+poke_characters.py will use this classes to generate the pokedex
+"""

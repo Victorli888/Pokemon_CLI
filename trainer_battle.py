@@ -1,6 +1,5 @@
 from Actions import tap
 import poke_characters
-import poke_moves
 
 
 indev = "In Development"
@@ -8,19 +7,17 @@ invalid = "\nThat is not a valid section please try again."
 
 """
 IDEA: create a script for trainer battle specific instead of creating a class create a battle script that will run
-everytime the a battle is initiated
+every time the a battle is initiated.
 """
 
 
 class TrainerBattle:
-    def __init__(self, opponent_name,opponent_poke, player_poke, move_set, move_names):
+    def __init__(self, opponent_name, opponent_poke, player_poke, move_set, move_names):
         self.opponent_name = opponent_name
         self.opponent_poke = opponent_poke
         self.player_poke = player_poke
         self.move_set = move_set
         self.move_names = move_names
-
-
 
     """NOTE: Link Pokemon moves with fight moves here!
     QUESTION what can be done for fight() so that we can accept 1,2,3 or 4 arguments w/o creating another seprate method
@@ -62,7 +59,7 @@ class TrainerBattle:
 
     def battle(self):
 
-        while self.opponent_poke.hp >= 0 and self.player_poke.hp >= 0:
+        while self.opponent_poke.hp > 0 and self.player_poke.hp > 0:
             print("What will you do? \n[A] Fight \n[B] Items \n[C] Pokeball \n[D] Flee ")
             ans = input("\nType answer here: ")
             if ans == "A":
@@ -97,21 +94,20 @@ class TrainerBattle:
             else:
                 print(invalid)
                 self.battle()
-        if self.player_poke.hp <= 0:
+        if self.player_poke.hp < 0:
             print("GAME OVER")
-            # will put in game over reset
+            # add function to reset game
         else:
             print("Victory!")
             return self.player_poke
 
 
 p_cyndiquil = poke_characters.cyndiquil_l5
+cy_l5_move_names = ["scratch", "smokescreen"]
 
 totodile1 = poke_characters.totodile_l5
 cyndiquil1 = poke_characters.cyndiquil_l5
 rival_poke = [totodile1, cyndiquil1]  # IDEA: use dictionary to create list of pokemon and use if-statement to switch
 
-first_battle = TrainerBattle("Rival Gary", rival_poke[0], p_cyndiquil , poke_characters.cy_l5, poke_moves.cy_l5_move_names)
+first_battle = TrainerBattle("Rival Gary", rival_poke[0], p_cyndiquil, poke_characters.cy_l5, cy_l5_move_names)
 p_cyndiquil = first_battle.battle()
-
-
