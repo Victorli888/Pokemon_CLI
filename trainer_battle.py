@@ -27,6 +27,17 @@ class TrainerBattle:
         print(f"Opponent's {self.opponent_poke.name} has {self.opponent_poke.hp} remaining")
         print(f"Your {self.player_poke.name} has {self.player_poke.hp} remaining")
 
+    def win_loss(self):
+        if self.player_poke.hp < 0:
+            print("GAME OVER")
+            return self.player_poke
+            # add function to reset game
+        elif self.opponent_poke.hp < 0:
+            print("Victory!")
+            return self.player_poke
+        else:
+            self.battle()
+
     def opponent_turn(self):
         damage = self.move_set["move1"](self.opponent_poke)
         self.player_poke.hp -= damage
@@ -71,7 +82,7 @@ class TrainerBattle:
                     damage = self.move_set["move1"](self.player_poke)
                     self.opponent_poke.hp -= damage
                     self.current_hp()
-                    self.battle()
+                    self.win_loss()
 
                 elif ans == "B":
                     def_down = self.move_set["move2"](self.player_poke)
@@ -94,12 +105,7 @@ class TrainerBattle:
             else:
                 print(invalid)
                 self.battle()
-        if self.player_poke.hp < 0:
-            print("GAME OVER")
-            # add function to reset game
-        else:
-            print("Victory!")
-            return self.player_poke
+
 
 
 p_cyndiquil = poke_characters.cyndiquil_l5
