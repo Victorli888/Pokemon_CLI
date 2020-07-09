@@ -26,22 +26,24 @@ class TrainerBattle:
     def current_hp(self):
         print(f"Opponent's {self.opponent_poke.name} has {self.opponent_poke.hp} remaining")
         print(f"Your {self.player_poke.name} has {self.player_poke.hp} remaining")
+        tap()
 
     def win_loss(self):
-        if self.player_poke.hp < 0:
+        if self.player_poke.hp <= 0:
             print("GAME OVER")
             return self.player_poke
             # add function to reset game
-        elif self.opponent_poke.hp < 0:
+        elif self.opponent_poke.hp <= 0:
             print("Victory!")
             return self.player_poke
-        else:
-            self.battle()
+
 
     def opponent_turn(self):
+        print("It is now opponent's " + self.opponent_poke.name + "'s turn!")
         damage = self.move_set["move1"](self.opponent_poke)
         self.player_poke.hp -= damage
         self.current_hp()
+        self.win_loss()
         self.battle()
 
     # def items(self):
@@ -68,44 +70,56 @@ class TrainerBattle:
     #     print(indev)
     #     pass
 
+    def attack_moves(self):
+        print(f"{self.player_poke.name} wants to fight! Which Move should they use?")
+        print(f"[A] {self.move_names[0]}\n[B] {self.move_names[1]}\n[C] Go Back. ")
+        ans = input("\nType answer here: ")
+
+        if ans == "A":
+            damage = self.move_set["move1"](self.player_poke)
+            self.opponent_poke.hp -= damage
+            self.current_hp()
+            self.win_loss()
+            self.opponent_turn()
+            self.battle()
+
+        elif ans == "B":
+            def_down = self.move_set["move2"](self.player_poke)
+            self.opponent_poke.defence *= def_down
+            print(f"Opponent's {self.opponent_poke.name} went down to {self.opponent_poke.defence}")
+            self.battle()
+
+        elif ans == "C":
+            self.battle()
+        # Add elif for C and D and if Dictionary for move names are blank use Exceptions statement
+
+        else:
+            print(invalid)
+            self.attack_moves()
+
+
     def battle(self):
 
         while self.opponent_poke.hp > 0 and self.player_poke.hp > 0:
             print("What will you do? \n[A] Fight \n[B] Items \n[C] Pokeball \n[D] Flee ")
             ans = input("\nType answer here: ")
             if ans == "A":
-                print(f"{self.player_poke.name} wants to fight!")
-                tap()
-                print(f"[A] {self.move_names[0]}\n[B] {self.move_names[1]}\n")
-                ans = input("Please select a move: ")
-                if ans == "A":
-                    damage = self.move_set["move1"](self.player_poke)
-                    self.opponent_poke.hp -= damage
-                    self.current_hp()
-                    self.win_loss()
+                self.attack_moves()
 
-                elif ans == "B":
-                    def_down = self.move_set["move2"](self.player_poke)
-                    self.opponent_poke.defence *= def_down
-                    print(f"Opponent's {self.opponent_poke.name} went down to {self.opponent_poke.defence}")
-                    self.battle()
-
-                else:
-                    print(invalid)
-                    self.battle()
             elif ans == "B":
                 # self.items()
                 pass
             elif ans == "C":
-                # self.pokeball()
-                pass
+                print(f"{self.opponent_name} says: What do you think you're doing you can't steal my pokemon!")
+                self.battle()
             elif ans == "D":
-                print("You can't flee from a trainer battle!")
+                print("You can't flee from a trainer battle!\n")
                 self.battle()
             else:
                 print(invalid)
                 self.battle()
 
+        return self.player_poke
 
 
 p_cyndiquil = poke_characters.cyndiquil_l5
