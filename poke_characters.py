@@ -10,9 +10,10 @@ effect in game when called on this will be under
 
 
 class Pokemon:
-    def __init__(self, name, hp, attack, defence, speed):
+    def __init__(self, name, hp, max_hp, attack, defence, speed):
         self.name = name
         self.hp = hp
+        self.max_hp = max_hp
         self.attack = attack
         self.defence = defence
         self.speed = speed
@@ -29,10 +30,10 @@ class Pokemon:
         # Check stats and reference damage accordingly
         if hit is True:
             print("It was a successful hit!")
-            damage = self.attack * .12
+            damage = round(self.attack * .12)
             if crit is True:
                 print("It was a Critical Hit!")
-                damage = damage * 1.5
+                damage = round(damage * 1.5)
                 print(f"inflicted {damage} points of damage")
                 return damage
             print(f"inflicted {damage} points of damage")
@@ -50,7 +51,7 @@ class Pokemon:
         # Check stats and reference damage accordingly
         if hit is True:
             print("It was a successful hit!")
-            damage = self.attack * .12
+            damage = round(self.attack * .12)
             print(f"inflicted {damage} points of damage")
             return damage
         else:
@@ -106,11 +107,10 @@ class Pokemon:
             return 0
 
 
-cyndiquil_l5 = Pokemon("Cyndiquil", 56, 552, 43, 65)
-# chikorita_l5 = Pokemon("Chikorita", 45, 49, 65, 45)
-totodile_l5 = Pokemon("Totodile", 50, 65, 64, 43)
+cyndiquil_l5 = Pokemon("Cyndiquil", 56, 56, 52, 43, 65)
+chikorita_l5 = Pokemon("Chikorita", 45, 45, 49, 65, 45)
+totodile_l5 = Pokemon("Totodile", 50, 50, 65, 64, 43)
 
-p_cyndiquil_l5 = {"name": "Cyndiquil", "hp": 39, "atk": 52, "def": 43, "spd": 65}
 scratch = Pokemon.scratch
 smokescreen = Pokemon.smokescreen
 cy_l5 = {"move1": scratch, "move2": smokescreen}

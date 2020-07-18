@@ -1,5 +1,6 @@
 from Actions import tap
 import poke_characters
+import inventory
 
 
 indev = "In Development"
@@ -12,12 +13,13 @@ every time the a battle is initiated.
 
 
 class TrainerBattle:
-    def __init__(self, opponent_name, opponent_poke, player_poke, move_set, move_names):
+    def __init__(self, opponent_name, opponent_poke, player_poke, move_set, move_names,):
         self.opponent_name = opponent_name
         self.opponent_poke = opponent_poke
         self.player_poke = player_poke
         self.move_set = move_set
         self.move_names = move_names
+
 
     """NOTE: Link Pokemon moves with fight moves here!
     QUESTION what can be done for fight() so that we can accept 1,2,3 or 4 arguments w/o creating another seprate method
@@ -28,6 +30,14 @@ class TrainerBattle:
         print(f"Your {self.player_poke.name} has {self.player_poke.hp} remaining")
         tap()
 
+    def heal_20hp(self):  # re-write code so that it says it healed x amount of hp
+        self.player_poke.hp += 20
+        if self.player_poke.hp > self.player_poke.max_hp:
+            self.player_poke.hp = self.player_poke.max_hp
+        print(f"Your {self.player_poke.name} regained Hp! and now has {self.player_poke.hp} hp")
+
+
+
     def win_loss(self):
         if self.player_poke.hp <= 0:
             print("GAME OVER")
@@ -37,7 +47,6 @@ class TrainerBattle:
             print("Victory!")
             return self.player_poke
 
-
     def opponent_turn(self):
         print("It is now opponent's " + self.opponent_poke.name + "'s turn!")
         damage = self.move_set["move1"](self.opponent_poke)
@@ -45,30 +54,6 @@ class TrainerBattle:
         self.current_hp()
         self.win_loss()
         self.battle()
-
-    # def items(self):
-    #     print("Which item would you like to use?")
-    #     print("[A] Potions x [{}] ".format(inventory.items["potion"]))
-    #     print("[B] Super Potion x [{}]".format(inventory.items["super potion"]))
-    #     print("[C] Cancel, Go back")
-    #     ans = input("Choice:  ")
-    #     if ans == "A":
-    #         inventory.items["potion"] -= 1
-    #         print("Potion used to regain 20HP")
-    #     elif ans == "B":
-    #         inventory.items["super potion"] -= 1
-    #         print("Super Potion used 50 HP was regained")
-    #     elif ans == "C":
-    #         print(indev)
-    #     else:
-    #         print(invalid)
-    #         self.items()
-    #
-    #     ans = input()
-
-    # def pokeball(self):
-    #     print(indev)
-    #     pass
 
     def attack_moves(self):
         print(f"{self.player_poke.name} wants to fight! Which Move should they use?")
@@ -97,6 +82,27 @@ class TrainerBattle:
             print(invalid)
             self.attack_moves()
 
+    def use_items(self):
+        # Create Check for when you have 0 of item
+        print("Which item would you like to use?")
+        print("[A] Potions x [{}] ".format(inventory.items["potion"]))
+        print("[B] Super Potion x [{}]".format(inventory.items["super potion"]))
+        print("[C] Cancel, Go back")
+        ans = input("Choice:  ")
+        if ans == "A":
+            inventory.items["potion"] = inventory.potion.use()
+            print("Potion used to regain 20HP")
+            self.heal_20hp()
+            self.opponent_turn()
+        elif ans == "B":
+            items["super potion"] -= 1
+            print("Super Potion used 50 HP was regained")
+            return 50
+        elif ans == "C":
+            print(indev)
+        else:
+            print(invalid)
+            items()
 
     def battle(self):
 
@@ -107,8 +113,8 @@ class TrainerBattle:
                 self.attack_moves()
 
             elif ans == "B":
-                # self.items()
-                pass
+                self.use_items()
+
             elif ans == "C":
                 print(f"{self.opponent_name} says: What do you think you're doing you can't steal my pokemon!")
                 self.battle()
@@ -123,11 +129,14 @@ class TrainerBattle:
 
 
 p_cyndiquil = poke_characters.cyndiquil_l5
+cy_l5_moves = {"move1": poke_characters.scratch, "move2": poke_characters.smokescreen}
 cy_l5_move_names = ["scratch", "smokescreen"]
 
 totodile1 = poke_characters.totodile_l5
 cyndiquil1 = poke_characters.cyndiquil_l5
 rival_poke = [totodile1, cyndiquil1]  # IDEA: use dictionary to create list of pokemon and use if-statement to switch
 
-first_battle = TrainerBattle("Rival Gary", rival_poke[0], p_cyndiquil, poke_characters.cy_l5, cy_l5_move_names)
+items = {"potion": 3, "super potion": 1, "pokeball": 5, "great ball": 3}
+
+first_battle = TrainerBattle("Rival Gary", rival_poke[0], p_cyndiquil, cy_l5_moves, cy_l5_move_names)
 p_cyndiquil = first_battle.battle()
