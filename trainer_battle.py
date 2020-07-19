@@ -30,12 +30,17 @@ class TrainerBattle:
         print(f"Your {self.player_poke.name} has {self.player_poke.hp} remaining")
         tap()
 
-    def heal_20hp(self):  # re-write code so that it says it healed x amount of hp
+    def heal_20hp(self):
         self.player_poke.hp += 20
         if self.player_poke.hp > self.player_poke.max_hp:
             self.player_poke.hp = self.player_poke.max_hp
         print(f"Your {self.player_poke.name} regained Hp! and now has {self.player_poke.hp} hp")
 
+    def heal_50hp(self):
+        self.player_poke.hp += 50
+        if self.player_poke.hp > self.player_poke.max_hp:
+            self.player_poke.hp = self.player_poke.max_hp
+        print(f"Your {self.player_poke.name} regained Hp! and now has {self.player_poke.hp} hp")
 
 
     def win_loss(self):
@@ -90,19 +95,28 @@ class TrainerBattle:
         print("[C] Cancel, Go back")
         ans = input("Choice:  ")
         if ans == "A":
-            inventory.items["potion"] = inventory.potion.use()
-            print("Potion used to regain 20HP")
-            self.heal_20hp()
-            self.opponent_turn()
+            if inventory.items["potion"] == 0:
+                print("\nNo Potions to use\n")
+                self.use_items()
+            else:
+                inventory.items["potion"] = inventory.potion.use()
+                print("\nPotion used to regain 20HP\n")
+                self.heal_20hp()
+                self.opponent_turn()
         elif ans == "B":
-            items["super potion"] -= 1
-            print("Super Potion used 50 HP was regained")
-            return 50
+            if inventory.items["super potion"] == 0:
+                print("\nNo Super Potions to use\n")
+                self.use_items()
+            else:
+                inventory.items["super potion"] = inventory.potion.use()
+                print("\nSuper Potion used to regain 50HP\n")
+                self.heal_20hp()
+                self.opponent_turn()
         elif ans == "C":
-            print(indev)
+            self.battle()
         else:
             print(invalid)
-            items()
+            self.use_items()
 
     def battle(self):
 

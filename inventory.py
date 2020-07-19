@@ -5,7 +5,7 @@ acquiring more potions and pokeballs can be implemented for a later date. for no
 the player when he begins his first poke-trainer battle.
 """
 
-items = {"potion": 3, "super potion": 1, "pokeball": 5, "great ball": 3}
+items = {"potion": 1, "super potion": 1, "pokeball": 5, "great ball": 3}
 balls = {"pokeball": 5, "great ball": 3}
 
 """
@@ -36,6 +36,6 @@ print(items["potion"])
 potion = Inventory(items["potion"])
 super_potion = Inventory(items["super potion"])
 
-items["potion"] = potion.use()
+# items["potion"] = potion.use()
 
 print(items["potion"])
