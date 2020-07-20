@@ -1,6 +1,8 @@
 import dialouge
 import Actions
 import inventory
+import poke_characters
+import trainer_battle
 
 # to simply show that this is an invalid choice
 invalid = "\nThat is not a valid section please try again."
@@ -312,7 +314,8 @@ def poke_selection():
         if ans == "Y":
             print("You Chose Cyndiquil!")
             Actions.tap()
-            post_poke_diag()
+            player_poke = poke_characters.cyndiquil_l5
+            return player_poke
         elif ans == "N":
             print("No problem. take you time!")
             Actions.tap()
@@ -326,7 +329,8 @@ def poke_selection():
         if ans == "Y":
             print("You Chose Totodile!")
             Actions.tap()
-            post_poke_diag()
+            player_poke = poke_characters.totodile_l5
+            return player_poke
         elif ans == "N":
             print("No problem. take you time!")
             Actions.tap()
@@ -339,8 +343,9 @@ def poke_selection():
         ans = input("> ")
         if ans == "Y":
             print("You chose Chikorita!")
+            player_poke = poke_characters.chikorita_l5
             Actions.tap()
-            post_poke_diag()
+            return player_poke
         elif ans == "N":
             print("No problem. take you time!")
             Actions.tap()
@@ -387,7 +392,7 @@ def poke_lab2():
     elif ans == "D":  # Exit lab
         print("You turn around and exit back from where you entered.")
         Actions.tap()
-        rival()  # This is where you battle your rival.
+        pass
 
     else:
         print(invalid)
@@ -405,30 +410,60 @@ scratched for now, can be re-implemented after 1.0 release. after poke_lab2
 #     print("You find a large field of tall grass would you like to? ")
 #     pass
 
+"""
+FIND A BETTER WAY TO HANDLE MULTIPLE VARIABLES SO THAT YOU DON"T NEED TO MAKE 3 if statements
 
-def rival():
-    """
-    This will be the final boss for this project, This is where you will need to access the inventory system to use
-    items. and use your extra pokemon to fight your rival. This will show case a different conditions, i.e
-    (Not being able to run away or attempting to capture a trainers pokemon.
+THIS NEEDS OPTIMIZING BADLY
+"""
 
-    Rival will ask you questions about your pokemon adventure, mention the west coast shore line, and abandon
-    his pokemon when you beat him. The player should then go to the west coast shore line to finish the game.
-    """
 
-    """
-    Every event will need a new set of condition statements until we get to the end of the story.
-    """
-    pallet_town()
-    pass
+def rival(player_poke):
+    # Rival Pokemon
+    rival_poke = poke_characters.totodile_l5
+    print(" A strange red haired trainer with a black jacket approaches you!")
+    Actions.tap()
+    dialouge.rival_diag_1()
+    if player_poke == poke_characters.cyndiquil_l5:
+        # Player Pokemon
+        p_poke = poke_characters.cyndiquil_l5
+        cy_moves = {"move1": poke_characters.tackle, "move2": poke_characters.smokescreen}
+        cy_move_names = ["tackle", "smokescreen"]
+        # Battle Sequence
+        first_battle = trainer_battle.TrainerBattle("Rival Gary", rival_poke, p_poke, cy_moves, cy_move_names)
+        player_poke = first_battle.battle()
+        return player_poke
+    elif player_poke == poke_characters.totodile_l5:
+        # Player Pokemon
+        p_poke = poke_characters.totodile_l5
+        toto_moves = {"move1": poke_characters.scratch, "move2": poke_characters.leer}
+        toto_move_names = ["scratch", "leer"]
+        # Battle Sequence
+        first_battle = trainer_battle.TrainerBattle("Rival Gary", rival_poke, p_poke, toto_moves, toto_move_names)
+        player_poke = first_battle.battle()
+        return player_poke
+    elif player_poke == poke_characters.chikorita_l5:
+        # Player Pokemon
+        p_poke = poke_characters.chikorita_l5
+        toto_moves = {"move1": poke_characters.tackle, "move2": poke_characters.growl}
+        toto_move_names = ["tackle", "growl"]
+        # Battle Sequence
+        first_battle = trainer_battle.TrainerBattle("Rival Gary", rival_poke, p_poke, toto_moves, toto_move_names)
+        p_poke = first_battle.battle()
+        return p_poke
+    else:
+        print("SOMETHING WENT WRONG!")
+
 
 
 player_name = "ash"  # place holder for now
 # Intro
 # pokemon_intro()
 # player_name = player_config()
-mom_intro_event(player_name)
+# mom_intro_event(player_name)
 # player_awake()
 # breakfast()  # right now this should be removed as it serves no purpose
 # lobby()
 # oak_intro()
+player_pokemon = poke_selection()  #
+post_poke_diag()
+player_pokemon = rival(player_pokemon)

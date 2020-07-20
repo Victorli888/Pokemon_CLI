@@ -20,7 +20,6 @@ class TrainerBattle:
         self.move_set = move_set
         self.move_names = move_names
 
-
     """NOTE: Link Pokemon moves with fight moves here!
     QUESTION what can be done for fight() so that we can accept 1,2,3 or 4 arguments w/o creating another seprate method
     """
@@ -41,7 +40,6 @@ class TrainerBattle:
         if self.player_poke.hp > self.player_poke.max_hp:
             self.player_poke.hp = self.player_poke.max_hp
         print(f"Your {self.player_poke.name} regained Hp! and now has {self.player_poke.hp} hp")
-
 
     def win_loss(self):
         if self.player_poke.hp <= 0:
@@ -88,7 +86,6 @@ class TrainerBattle:
             self.attack_moves()
 
     def use_items(self):
-        # Create Check for when you have 0 of item
         print("Which item would you like to use?")
         print("[A] Potions x [{}] ".format(inventory.items["potion"]))
         print("[B] Super Potion x [{}]".format(inventory.items["super potion"]))
@@ -142,15 +139,16 @@ class TrainerBattle:
         return self.player_poke
 
 
-p_cyndiquil = poke_characters.cyndiquil_l5
-cy_l5_moves = {"move1": poke_characters.scratch, "move2": poke_characters.smokescreen}
-cy_l5_move_names = ["scratch", "smokescreen"]
-
-totodile1 = poke_characters.totodile_l5
-cyndiquil1 = poke_characters.cyndiquil_l5
-rival_poke = [totodile1, cyndiquil1]  # IDEA: use dictionary to create list of pokemon and use if-statement to switch
-
-items = {"potion": 3, "super potion": 1, "pokeball": 5, "great ball": 3}
-
-first_battle = TrainerBattle("Rival Gary", rival_poke[0], p_cyndiquil, cy_l5_moves, cy_l5_move_names)
-p_cyndiquil = first_battle.battle()
+# # Player Pokemon Details
+# p_cyndiquil = poke_characters.cyndiquil_l5
+# cy_l5_moves = {"move1": poke_characters.scratch, "move2": poke_characters.smokescreen}
+# cy_l5_move_names = ["scratch", "smokescreen"]
+#
+# # Rival Pokemon details
+# totodile1 = poke_characters.totodile_l5
+# cyndiquil1 = poke_characters.cyndiquil_l5
+# rival_poke = [totodile1, cyndiquil1]  # IDEA: use dictionary to create list of pokemon and use if-statement to switch
+#
+# # Run Battle Sequence
+# first_battle = TrainerBattle("Rival Gary", rival_poke[0], p_cyndiquil, cy_l5_moves, cy_l5_move_names)
+# p_cyndiquil = first_battle.battle()

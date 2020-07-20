@@ -6,6 +6,16 @@ mv1 = moveset 1 (attack move, power up move , etc)
 pokemon_l5 = pokemon name and its level
 ** NOTE move sets are currently a string value as a place holder. The plan is to create a method that will have an
 effect in game when called on this will be under
+
+speed will be implemented in v1.1 to determine who goes first in a battle.
+
+DEVELOPER NOTES: 
+Remove Move_set from Pokemon Class and apply them to a new move list script [ DON't CREATE A FACTORY INSIDE A FACTORY
+keep "Tackle", "Smokescreen" etc as string values for battle.py and only apply the methods when needed.
+
+story.py is when the actual instances of a pokemon hp and stats save it into a hash map.
+
+poke_characters.py will use this classes to generate the pokedex
 """
 
 
@@ -112,16 +122,10 @@ chikorita_l5 = Pokemon("Chikorita", 45, 45, 49, 65, 45)
 totodile_l5 = Pokemon("Totodile", 50, 50, 65, 64, 43)
 
 scratch = Pokemon.scratch
+tackle = Pokemon.tackle
 smokescreen = Pokemon.smokescreen
-cy_l5 = {"move1": scratch, "move2": smokescreen}
+leer = Pokemon.leer
+growl = Pokemon.growl
 
 
-"""
-DEVELOPER NOTES: 
-Remove Move_set from Pokemon Class and apply them to a new move list script [ DON't CREATE A FACTORY INSIDE A FACTORY
-keep "Tackle", "Smokescreen" etc as string values for battle.py and only apply the methods when needed.
-
-story.py is when the actual instances of a pokemon hp and stats save it into a hash map.
-
-poke_characters.py will use this classes to generate the pokedex
-"""
+cy_l5 = {"move1": tackle, "move2": smokescreen}

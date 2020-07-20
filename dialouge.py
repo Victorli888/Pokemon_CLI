@@ -55,3 +55,8 @@ def mom_diag_1(player_name):
 def mom_diag_2():
     print("Why hello dear! I'm a little busy with house work, so why don't you go enjoy how nice it is outside. ")
     Actions.tap()
+
+def rival_diag_1():
+    print("So you're the newest Pokemon Trainer that Oak chose.")
+    Actions.tap()
+    print("pfft what makes you so special. Let's Battle and find out!")
