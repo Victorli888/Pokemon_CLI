@@ -9,6 +9,11 @@ invalid = "\nThat is not a valid section please try again."
 indev = "This section is in development."
 
 
+def error():
+    print(invalid)
+    Actions.tap()
+
+
 def pokemon_intro():
     print("Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!")
     Actions.tap()
@@ -284,7 +289,7 @@ def oak_intro(player_name):
     print("[A] Yes I'm ready.\n[B] No I'd like to look around a bit longer")
     ans = input("> ")
     if ans == "A":
-
+        print("Follow me over here then mah boy")
         poke_selection()
     elif ans == "B":
         print("You go back to the front lobby of the PokeLab.")
@@ -304,60 +309,40 @@ I need to create a variable to save the pokemon that the user inputs, [Selection
 
 
 def poke_selection():
-    print("Follow me over here then! We have 3 Pokemon to adopt from.")
+
+    print("We have 3 Pokemon to adopt from.")
     Actions.tap()
     print("Please choose from either, \n[A] Cyndaquil\n[B] Totodile\n[C] Chikorita")
     ans = input("> ")
     if ans == "A":  # choose Cyndaquil
         print(" This is Cyndiquil, a fire type! Are you sure this is who you want? [Y] or [N]")
         ans = input("> ")
-        if ans == "Y":
-            print("You Chose Cyndiquil!")
-            Actions.tap()
-            player_poke = poke_characters.cyndiquil_l5
-            return player_poke
-        elif ans == "N":
-            print("No problem. take you time!")
-            Actions.tap()
-            poke_selection()
-        else:
-            print(invalid)
-            poke_selection()
+    if ans == "Y":
+        print("You Chose Cyndiquil!")
+        Actions.tap()
+        player_poke = poke_characters.cyndiquil_l5
+        return player_poke
+
     elif ans == "B":  # choose Totodile
         print(" This is Totodile, a water type! Are you sure this is who you want? [Y] or [N]")
         ans = input("> ")
-        if ans == "Y":
-            print("You Chose Totodile!")
-            Actions.tap()
-            player_poke = poke_characters.totodile_l5
-            return player_poke
-        elif ans == "N":
-            print("No problem. take you time!")
-            Actions.tap()
-            poke_selection()
-        else:
-            print(invalid)
-            poke_selection()
-    elif ans == "C":  # choose Chikorita
-        print(" This is Chikorita, a grass type! Are you sure this is who you want? [Y] or [N]")
-        ans = input("> ")
-        if ans == "Y":
-            print("You chose Chikorita!")
-            player_poke = poke_characters.chikorita_l5
-            Actions.tap()
-            return player_poke
-        elif ans == "N":
-            print("No problem. take you time!")
-            Actions.tap()
-            poke_selection()
-        else:
-            print(invalid)
-            poke_selection()
-    else:
-        print(invalid)
-        poke_selection()
+    if ans == "Y":
+        print("You Chose Totodile!")
+        Actions.tap()
+        player_poke = poke_characters.totodile_l5
+        return player_poke
 
-# After selecting a pokemon new dialouge will follow next time the player enters the pokelab
+    elif ans == "C":  # choose Chikorita
+        print("This is Chikorita, a grass type! Are you sure this is who you want? [Y] or [N]")
+        ans = input("> ")
+    if ans == "Y":
+        print("You chose Chikorita!")
+        player_poke = poke_characters.chikorita_l5
+        Actions.tap()
+        return player_poke
+
+    print("No problem Take your time!")
+    Actions.tap()
 
 
 def post_poke_diag():
@@ -386,6 +371,8 @@ def poke_lab2():
         dialouge.assistant_diag_1()
         poke_lab2()
     elif ans == "C":  # Approach Professor
+        print("You tip toe up to the professor to talk to him.")
+        Actions.tap()
         print("What are you still doing here? Adventure is out there waiting for you!")
         poke_lab2()
 
@@ -453,6 +440,11 @@ def rival(player_poke):
     else:
         print("SOMETHING WENT WRONG!")
 
+def post_rival_battle():
+    pass
+    """
+    Player will win, Rival revenge foreshadowing monolouge, Abandon's totodile
+    """
 
 
 player_name = "ash"  # place holder for now
@@ -464,6 +456,9 @@ player_name = "ash"  # place holder for now
 # breakfast()  # right now this should be removed as it serves no purpose
 # lobby()
 # oak_intro()
-player_pokemon = poke_selection()  #
+player_pokemon = poke_selection()
+while player_pokemon is None:
+    player_pokemon = poke_selection()
+
 post_poke_diag()
 player_pokemon = rival(player_pokemon)

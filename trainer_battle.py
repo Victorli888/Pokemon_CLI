@@ -19,6 +19,8 @@ class TrainerBattle:
         self.player_poke = player_poke
         self.move_set = move_set
         self.move_names = move_names
+        print(f"\nOpponent sent out {opponent_poke.name}")
+        print(f"You sent out {player_poke.name}\n")
 
     """NOTE: Link Pokemon moves with fight moves here!
     QUESTION what can be done for fight() so that we can accept 1,2,3 or 4 arguments w/o creating another seprate method

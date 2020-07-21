@@ -1,5 +1,5 @@
 """
-All in character dialouges will be stored in this script.py file, All characters are organized in Alphabet order.
+All in character dialogues will be stored in this script.py file, All characters are organized in Alphabet order.
 """
 import Actions
 
@@ -32,7 +32,7 @@ def proffesor_diag_3():
 
 
 def assistant_diag_1():
-    print("Oh Hi there, I'm Proffesor Oak's Lab Assitant. I'm pretty busy at the moment. why don't you speak with\n"
+    print("Oh Hi there, I'm Professor Oak's Lab Assistant. I'm pretty busy at the moment. why don't you speak with\n"
           "the Professor first.")
     Actions.tap()
 
@@ -55,6 +55,7 @@ def mom_diag_1(player_name):
 def mom_diag_2():
     print("Why hello dear! I'm a little busy with house work, so why don't you go enjoy how nice it is outside. ")
     Actions.tap()
+
 
 def rival_diag_1():
     print("So you're the newest Pokemon Trainer that Oak chose.")
