@@ -61,3 +61,6 @@ def rival_diag_1():
     print("So you're the newest Pokemon Trainer that Oak chose.")
     Actions.tap()
     print("pfft what makes you so special. Let's Battle and find out!")
+
+def rival_diag_2(): # He beats you
+    print("That's what I thought Loser. Now get out of my way!")

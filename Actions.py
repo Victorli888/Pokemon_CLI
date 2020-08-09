@@ -33,7 +33,7 @@ def print_normal(a_string):
 
 
 def faint():
-    print_slow("You're head feels light before you know it you fall to the ground and just like that your vision goes\n"
+    print("You're head feels light before you know it you fall to the ground and just like that your vision goes\n"
                "dark\n")
     print_slow("3.....2.....1......You have fainted\n")
     tap()

@@ -431,14 +431,15 @@ def rival(player_poke):
     elif player_poke == poke_characters.chikorita_l5:
         # Player Pokemon
         p_poke = poke_characters.chikorita_l5
-        toto_moves = {"move1": poke_characters.tackle, "move2": poke_characters.growl}
-        toto_move_names = ["tackle", "growl"]
+        chika_moves = {"move1": poke_characters.tackle, "move2": poke_characters.growl}
+        chika_move_names = ["tackle", "growl"]
         # Battle Sequence
-        first_battle = trainer_battle.TrainerBattle("Rival Gary", rival_poke, p_poke, toto_moves, toto_move_names)
+        first_battle = trainer_battle.TrainerBattle("Rival Gary", rival_poke, p_poke, chika_moves, chika_move_names)
         p_poke = first_battle.battle()
         return p_poke
     else:
         print("SOMETHING WENT WRONG!")
+
 
 def post_rival_battle():
     pass
@@ -448,17 +449,28 @@ def post_rival_battle():
 
 
 player_name = "ash"  # place holder for now
+# Game Intro / set up
 # Intro
 # pokemon_intro()
 # player_name = player_config()
+
+# Mother introduction
 # mom_intro_event(player_name)
 # player_awake()
-# breakfast()  # right now this should be removed as it serves no purpose
-# lobby()
-# oak_intro()
-player_pokemon = poke_selection()
-while player_pokemon is None:
-    player_pokemon = poke_selection()
 
-post_poke_diag()
+
+# Enter the lobby of the pokemon research center
+# lobby()
+
+# Professor introduces himself.
+# oak_intro()
+
+# Player selects a pokemon
+player_pokemon = poke_selection()
+
+#New Pokemon saved to player and fight with Rival starts
 player_pokemon = rival(player_pokemon)
+
+"""
+Need a way to reset the pokemon stats of the player
+"""

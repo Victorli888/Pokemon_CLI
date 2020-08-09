@@ -117,9 +117,13 @@ class Pokemon:
             return 0
 
 
-cyndiquil_l5 = Pokemon("Cyndiquil", 56, 56, 52, 43, 65)
+cyndiquil_l5 = Pokemon("Cyndiquil", 6, 56, 52, 43, 65)
 chikorita_l5 = Pokemon("Chikorita", 45, 45, 49, 65, 45)
 totodile_l5 = Pokemon("Totodile", 50, 50, 65, 64, 43)
+
+cyndiquil_l5_reset = Pokemon("Cyndiquil", 60, 56, 52, 43, 65)
+chikorita_l5_reset = Pokemon("Chikorita", 45, 45, 49, 65, 45)
+totodile_l5_reset = Pokemon("Totodile", 50, 50, 65, 64, 43)
 
 scratch = Pokemon.scratch
 tackle = Pokemon.tackle
