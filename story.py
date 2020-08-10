@@ -448,6 +448,14 @@ def rival(player_poke):
         print("SOMETHING WENT WRONG!")
 
 
+def post_rival_battle():
+    Actions.tap()
+    print("You see the stranger run away abandoning his totodile")
+    Actions.tap()
+    print("You approach Totodile and you see that he is in deep need of a new home")
+    Actions.tap()
+
+
 def adopt_totodile():
     print("Do you wish to adopt Totodile? [Y] or [N]")
     ans = input("> ")
@@ -456,6 +464,7 @@ def adopt_totodile():
         adopt_totodile()
     if ans == "Y":
         print("You adopted Totodile!")
+
 
 def toto_realization():
     print("As you hold Totodile a little closer you notice he has a silver coin on his neck")
@@ -467,7 +476,6 @@ def toto_realization():
     print("You make a realization that Toto was stolen from his home and should be reunited with his real home")
     Actions.tap()
     print("You step back into Pallet town and briskly make your way across town")
-
 
 
 def pallet_town_2():
@@ -495,6 +503,7 @@ def pallet_town_2():
         print(invalid)
         pallet_town_2()
 
+
 def westward_coast_2():
     Actions.tap()
     print("You reach the beach with the warm sun hitting your back and the fresh ocean breeze hitting your face ")
@@ -518,6 +527,7 @@ def westward_coast_2():
     else:
         print(invalid)
         westward_coast_2()
+
 
 # This is where you'll get a ticket to get to Gold Coast from West Coast Shore line
 def dock():
@@ -545,7 +555,9 @@ def dock():
 
 def ship_cabin(player_poke):
     print(f"You open the door and take a load off. You watch {player_poke} and Toto play around the room.")
-    print("While you sit down it's been a long day and you start to close your eyes for a second.")
+    print("As you sit down you feel your fatigue overwhelm you.")
+    Actions.tap()
+    print("it's been a long day and you start to close your eyes for a second.")
     Actions.tap()
     print("Part 1 Finished!")
     print("Thanks so much for playing!")
@@ -582,11 +594,7 @@ while player_pokemon.hp <= 0:
 # dialouge.rival_diag_3()
 
 # Adopting totodile
-Actions.tap()
-print("You see the run away abandoning his totodile")
-Actions.tap()
-print("You approach Totodile and you see that he is in deep need of a new home")
-Actions.tap()
+post_rival_battle()
 adopt_totodile()
 
 # End game revealed

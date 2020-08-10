@@ -33,14 +33,14 @@ class TrainerBattle:
 
     def heal_20hp(self):
         self.player_poke.hp += 20
-        if self.player_poke.hp > self.player_poke.max_hp:
-            self.player_poke.hp = self.player_poke.max_hp
+        if self.player_poke.hp > self.player_poke.og_hp:
+            self.player_poke.hp = self.player_poke.og_hp
         print(f"Your {self.player_poke.name} regained Hp! and now has {self.player_poke.hp} hp")
 
     def heal_50hp(self):
         self.player_poke.hp += 50
-        if self.player_poke.hp > self.player_poke.max_hp:
-            self.player_poke.hp = self.player_poke.max_hp
+        if self.player_poke.hp > self.player_poke.og_hp:
+            self.player_poke.hp = self.player_poke.og_hp
         print(f"Your {self.player_poke.name} regained Hp! and now has {self.player_poke.hp} hp")
 
     def win_loss(self):
