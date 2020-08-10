@@ -325,8 +325,6 @@ def poke_selection():
 
     elif ans == "B":  # choose Totodile
         print(" This is Totodile, a water type! Are you sure this is who you want? [Y] or [N]")
-        ans = input("> ")
-    if ans == "Y":
         print("You Chose Totodile!")
         Actions.tap()
         player_poke = poke_characters.totodile_l5
@@ -342,7 +340,11 @@ def poke_selection():
         return player_poke
 
     print("No problem Take your time!")
-    Actions.tap()
+    return None
+
+
+
+
 
 
 def post_poke_diag():
@@ -397,16 +399,13 @@ scratched for now, can be re-implemented after 1.0 release. after poke_lab2
 #     print("You find a large field of tall grass would you like to? ")
 #     pass
 
-"""
-FIND A BETTER WAY TO HANDLE MULTIPLE VARIABLES SO THAT YOU DON"T NEED TO MAKE 3 if statements
-
-THIS NEEDS OPTIMIZING BADLY
-"""
-
 
 def rival(player_poke):
     # Rival Pokemon
     rival_poke = poke_characters.totodile_l5
+    # Rival Pokemon will reset HP before every encounter
+    # rival_poke.reset_stats()
+
     print(" A strange red haired trainer with a black jacket approaches you!")
     Actions.tap()
     dialouge.rival_diag_1()
@@ -465,12 +464,20 @@ player_name = "ash"  # place holder for now
 # Professor introduces himself.
 # oak_intro()
 
-# Player selects a pokemon
+# Player selects a pokemon if choice is invalid the function will re-call itself until answer is valid
 player_pokemon = poke_selection()
+while player_pokemon is None:
+    player_pokemon = poke_selection()
 
-#New Pokemon saved to player and fight with Rival starts
+
+# New Pokemon saved to player and fight with Rival starts
 player_pokemon = rival(player_pokemon)
+while player_pokemon.hp <= 0:
+    print("To Revert to last save please tap any key to continue")
+    Actions.tap()
+    Actions.print_slow("Reverting to last save........save loaded.")
+    Actions.tap()
+    player_pokemon.reset_stats()
+    player_pokemon = rival(player_pokemon)
 
-"""
-Need a way to reset the pokemon stats of the player
-"""
+# Rival Defeated story continues...

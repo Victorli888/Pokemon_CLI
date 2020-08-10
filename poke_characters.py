@@ -20,13 +20,20 @@ poke_characters.py will use this classes to generate the pokedex
 
 
 class Pokemon:
-    def __init__(self, name, hp, max_hp, attack, defence, speed):
+    def __init__(self, name, hp, og_hp, attack, og_atk, defence, og_def, speed):
         self.name = name
         self.hp = hp
-        self.max_hp = max_hp
+        self.og_hp = og_hp
         self.attack = attack
+        self.og_atk = og_atk
         self.defence = defence
+        self.og_def = og_def
         self.speed = speed
+
+    def reset_stats(self):
+        self.hp = self.og_hp
+        self.attack = self.og_atk
+        self.defence = self.og_def
 
     def tackle(self):
         print(f"{self.name} Used Tackle...")
@@ -117,13 +124,9 @@ class Pokemon:
             return 0
 
 
-cyndiquil_l5 = Pokemon("Cyndiquil", 6, 56, 52, 43, 65)
-chikorita_l5 = Pokemon("Chikorita", 45, 45, 49, 65, 45)
-totodile_l5 = Pokemon("Totodile", 50, 50, 65, 64, 43)
-
-cyndiquil_l5_reset = Pokemon("Cyndiquil", 60, 56, 52, 43, 65)
-chikorita_l5_reset = Pokemon("Chikorita", 45, 45, 49, 65, 45)
-totodile_l5_reset = Pokemon("Totodile", 50, 50, 65, 64, 43)
+cyndiquil_l5 = Pokemon("Cyndiquil", 40, 40, 52, 52, 43, 43, 65)
+chikorita_l5 = Pokemon("Chikorita", 45, 45, 49, 49, 65, 65, 45)
+totodile_l5 = Pokemon("Totodile", 50, 50, 65, 65, 64, 64, 43)
 
 scratch = Pokemon.scratch
 tackle = Pokemon.tackle
