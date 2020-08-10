@@ -109,11 +109,20 @@ def player_pc():
     print("Your PC boots and you have 3 selections to pick from\n> [Pokebox]\n> [Bank]\n> [Exit]")
     ans = input("> ")
     if ans == "Pokebox":  # View pokebox
-        print(indev)
-        pass
+        print("You try to access your pokebox but it looks like the system is down for maintenance.")
+        player_pc()
+
     elif ans == "Bank":  # View Bank
-        print(indev)
-        pass
+        print("You Log in your Bank Credentials and your account summary appears")
+        Actions.tap()
+        print("~~~ Account Summary ~~~"
+              "\nCheckings: $0"
+              "\nSavings: $0")
+        Actions.tap()
+        print("Mom really should give me an allowance...")
+        Actions.tap()
+        print("You exit back to the PC")
+
     elif ans == "Exit":  # Exit
         print("Exiting PC...")
         player_room()
