@@ -63,4 +63,17 @@ def rival_diag_1():
     print("pfft what makes you so special. Let's Battle and find out!")
 
 def rival_diag_2(): # He beats you
-    print("That's what I thought Loser. Now get out of my way!")
+    print("That's what I thought you are a Loser. Now get out of my way!")
+
+def rival_diag_3():
+    print("WHAT! you beat me?!")
+    print("pffft what a useless pokemon, I'll find a stronger pokemon and things will end up different")
+
+def ticketer_diag_1():
+    print("Hey kid. The last ship to Gold Coast leaves boards in 10 minutes are you trying to get on?")
+
+def ticketer_diag_2():
+    print("Oh really? I only figured because Gold Coast is where everyone starts in order to become a Pokemon Master")
+    Actions.tap()
+    print("")
+

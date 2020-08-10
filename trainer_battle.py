@@ -46,7 +46,6 @@ class TrainerBattle:
     def win_loss(self):
         if self.player_poke.hp <= 0:
             print("All your pokemon have fainted")
-            print("GAME OVER")
             return self.player_poke
             # add function to reset game
         elif self.opponent_poke.hp <= 0:

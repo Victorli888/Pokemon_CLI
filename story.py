@@ -1,6 +1,5 @@
 import dialouge
 import Actions
-import inventory
 import poke_characters
 import trainer_battle
 
@@ -15,26 +14,34 @@ def error():
 
 
 def pokemon_intro():
-    print("Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!")
+    print("Game Tip: When prompted the game will ask you to answer questions answer with the word contained in [ ].")
     Actions.tap()
-    print("This world is inhabited by creatures called POKEMON! For some people, POKEMON are pets.")
+    print("Hello there! Welcome to the world of pokemon! My name is OAK! People call me the Professor!")
     Actions.tap()
-    print("Others use them for fights. Myself...I study POKEMON as a profession.")
+    print("This world is inhabited by creatures called pokemon! For some people, pokemon are pets.")
     Actions.tap()
+    print("Others use them for fights. Myself...I study pokemon as a profession.")
+    Actions.tap()
+
 
 
 def player_config():
-    print("\nFirst, Please tell me are you a Boy or a Girl?")
+    print("\nFirst, Please tell me what's your gender?")
     player_gender = input("> ")
 
-    if player_gender == "Boy" or player_gender == "Girl":
-        print("Excellent!")
+    print("okay I'll write that down! I'm filling out a form here and no one cares so It can be whatever")
+    Actions.tap()
 
-    else:
-        print(invalid)
-        player_config()
+    print("Excellent! Everything is looking good on my end")
+
     print("Now, Please tell me your name.")
-    select_name = input("> ")
+    select_name = input(">My name is: ")
+    num = len(select_name)
+    while num < 3:
+        print("That's a really short name please we're friends here tell me your full name")
+        select_name = input("> My name is: ")
+        num = len(select_name)
+
     print(f"Ok {select_name} welcome to Pallet Town your Pokemon Journey starts now!\n")
     Actions.tap()
     return select_name
@@ -51,6 +58,7 @@ def mom_intro_event(player_name):
 
 
 def player_awake():
+    Actions.tap()
     print("You wake up in comfortable bed in room that Mom always keeps clean.You see 3 Options:\n[PC]\n[Door]\n[Bed].")
     ans = input("> ")
     if ans == "Bed":  # Go to bed
@@ -440,29 +448,117 @@ def rival(player_poke):
         print("SOMETHING WENT WRONG!")
 
 
-def post_rival_battle():
-    pass
-    """
-    Player will win, Rival revenge foreshadowing monolouge, Abandon's totodile
-    """
+def adopt_totodile():
+    print("Do you wish to adopt Totodile? [Y] or [N]")
+    ans = input("> ")
+    if ans == "N":
+        print("How could you not want to adopt something this cute?! think again")
+        adopt_totodile()
+    if ans == "Y":
+        print("You adopted Totodile!")
+
+def toto_realization():
+    print("As you hold Totodile a little closer you notice he has a silver coin on his neck")
+    Actions.tap()
+    print('You read the coin and find that it says: \nName: Toto\nAddress: Gold Coast Building #3')
+    Actions.tap()
+    print("Gold Coast?! That's across the ocean")
+    Actions.tap()
+    print("You make a realization that Toto was stolen from his home and should be reunited with his real home")
+    Actions.tap()
+    print("You step back into Pallet town and briskly make your way across town")
 
 
-player_name = "ash"  # place holder for now
+
+def pallet_town_2():
+    Actions.tap()
+    print("You see gorgeous blue skies, the field of short green grass that surround your small town. You see..."
+          "\n [A] The Pallet Town PokeLab"
+          "\n [B] The Westward Ocean Coastline"
+          "\n [C] You're House.")
+    print("Which would you like to visit first?")
+    ans = input("> ")
+    if ans == "A":  # For Pallet Town Poke Lab
+        print("We're running out of time We should really get to the dock before we miss the last ferry")
+        pallet_town_2()
+
+    elif ans == "B":  # For Westward Ocean Coastline
+        print("You look left and you walk down the path to the Westward Ocean Coastline")
+        Actions.tap()
+        westward_coast_2()
+
+        pass  # Add method for the "West Ward Ocean Coast line", and loop back to outside world
+    elif ans == "C":  # For Home
+        print("We're running out of time We should really get to the dock before we miss the last ferry")
+        pallet_town_2()
+    else:
+        print(invalid)
+        pallet_town_2()
+
+def westward_coast_2():
+    Actions.tap()
+    print("You reach the beach with the warm sun hitting your back and the fresh ocean breeze hitting your face ")
+    Actions.tap()
+    print("What do you decide to do next?\n[A] Visit Dock\n[B] Go Fish\n[C] Turn Back ")
+    ans = input(">")
+    if ans == "A":  # Take a boat to go to Gold Coast
+        print(" You approach the West Coast Shoreline Ferry Station")
+        dock()
+    elif ans == "B":  # Go Fish
+        print("You decide its a wonderful day to go fishing! but then you realize you don't even have a fishing rod...")
+        Actions.tap()
+        print("without hesitation you see Toto dive in trying to catch the fish!")
+        Actions.tap()
+        print("Unable to catch anything he crawls out the water and back next to you, and you get back to the task at"
+              " hand")
+        westward_coast_2()
+    elif ans == "C":  # Turn around
+        print("As gorgeous and relaxing it is you decide to turn back and head back to pallet town")
+        pallet_town_2()
+    else:
+        print(invalid)
+        westward_coast_2()
+
+# This is where you'll get a ticket to get to Gold Coast from West Coast Shore line
+def dock():
+    Actions.tap()
+    print("As you approach you see this large ship that sways back and forth in the water.")
+    Actions.tap()
+    print("As your eyes wander around. You see the ticket booth off to the left making last calls for boarding tickets")
+    Actions.tap()
+    print("you approach the ticket counter and you see a tired ticketer. as he looks to you he says:")
+    dialouge.ticketer_diag_1()
+    ans = input("> Type either [Y] or [N]. ")
+    if ans == "Y":
+        print("You buy the ticket and board the ship to get ready for your adventure in Gold Coast")
+        Actions.tap()
+        print("You stumble around the corridors of the ship trying to find your cabin E22")
+        print("At the end of the hallway you finally find your cabin!")
+    elif  ans =="N":
+        dialouge.ticketer_diag_2()
+        print("You feel as if you're not ready so you walk back to the beach think what you really want to do next.")
+        westward_coast_2()
+    else:
+        print(invalid)
+        dock()
+
+
+def ship_cabin(player_poke):
+    print(f"You open the door and take a load off. You watch {player_poke} and Toto play around the room.")
+    print("While you sit down it's been a long day and you start to close your eyes for a second.")
+    Actions.tap()
+    print("Part 1 Finished!")
+    print("Thanks so much for playing!")
+
+
 # Game Intro / set up
-# Intro
-# pokemon_intro()
-# player_name = player_config()
+pokemon_intro()
+player_name = player_config()
 
 # Mother introduction
-# mom_intro_event(player_name)
-# player_awake()
+mom_intro_event(player_name)
+player_awake()
 
-
-# Enter the lobby of the pokemon research center
-# lobby()
-
-# Professor introduces himself.
-# oak_intro()
 
 # Player selects a pokemon if choice is invalid the function will re-call itself until answer is valid
 player_pokemon = poke_selection()
@@ -470,9 +566,11 @@ while player_pokemon is None:
     player_pokemon = poke_selection()
 
 
-# New Pokemon saved to player and fight with Rival starts
+# # New Pokemon saved to player and fight with Rival starts
 player_pokemon = rival(player_pokemon)
 while player_pokemon.hp <= 0:
+    dialouge.rival_diag_2()
+    print("GAME OVER")
     print("To Revert to last save please tap any key to continue")
     Actions.tap()
     Actions.print_slow("Reverting to last save........save loaded.")
@@ -480,4 +578,23 @@ while player_pokemon.hp <= 0:
     player_pokemon.reset_stats()
     player_pokemon = rival(player_pokemon)
 
-# Rival Defeated story continues...
+# Rival Defeated dialogue continues...
+# dialouge.rival_diag_3()
+
+# Adopting totodile
+Actions.tap()
+print("You see the run away abandoning his totodile")
+Actions.tap()
+print("You approach Totodile and you see that he is in deep need of a new home")
+Actions.tap()
+adopt_totodile()
+
+# End game revealed
+toto_realization()
+
+# Back to Pallet Town
+pallet_town_2()
+ship_cabin(player_pokemon.name)
+
+
+
