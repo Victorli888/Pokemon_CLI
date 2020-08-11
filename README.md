@@ -20,12 +20,6 @@ $ python3 story.py
 
 Python 3.7 or greater [Offical Version of Python](https://www.python.org/downloads/)
 
-
-```
-Give examples
-```
-
-
 ## Running the tests
 
 unit testing & integration testing using python's unittest library
