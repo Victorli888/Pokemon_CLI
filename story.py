@@ -312,11 +312,12 @@ def oak_intro(player_name):
     ans = input("> ")
     if ans == "A":
         print("Follow me over here then mah boy")
-        poke_selection()
+
     elif ans == "B":
         print("You go back to the front lobby of the PokeLab.")
         Actions.tap()
         poke_lab()
+
     else:
         print(invalid)
         oak_intro(player_name)
@@ -338,7 +339,7 @@ def poke_selection():
     ans = input("> ")
     if ans == "A":  # choose Cyndaquil
         print(" This is Cyndiquil, a fire type! Are you sure this is who you want? [Y] or [N]")
-        ans = input("> ")
+    ans = input("> ")
     if ans == "Y":
         print("You Chose Cyndiquil!")
         Actions.tap()
@@ -347,7 +348,7 @@ def poke_selection():
 
     elif ans == "B":  # choose Totodile
         print(" This is Totodile, a water type! Are you sure this is who you want? [Y] or [N]")
-        ans = input("> ")
+    ans = input("> ")
     if ans == "Y":
         print("You Chose Totodile!")
         Actions.tap()
@@ -356,7 +357,7 @@ def poke_selection():
 
     elif ans == "C":  # choose Chikorita
         print("This is Chikorita, a grass type! Are you sure this is who you want? [Y] or [N]")
-        ans = input("> ")
+    ans = input("> ")
     if ans == "Y":
         print("You chose Chikorita!")
         player_poke = poke_characters.chikorita_l5
@@ -429,7 +430,7 @@ def rival(player_poke):
     rival_poke = poke_characters.totodile_l5
 
     # Rival Pokemon will reset HP before every encounter
-    rival_poke.reset_stats()
+    # rival_poke.reset_stats()
     print("Congratulations! Now you ready to adventure out in the world as a pokemon trainer. ")
     Actions.tap()
     print("As you step out of the Lab you see someone waiting just around the corner")
