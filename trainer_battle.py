@@ -56,6 +56,8 @@ class TrainerBattle:
     def opponent_turn(self):
         print("It is now opponent's " + self.opponent_poke.name + "'s turn!")
         damage = self.move_set["move1"](self.opponent_poke)
+        tap()
+        print(f"Opponent's {self.opponent_poke.name} did {damage} damage!")
         self.player_poke.hp -= damage
         self.current_hp()
         self.win_loss()
@@ -78,7 +80,10 @@ class TrainerBattle:
         elif ans == "B":
             def_down = self.move_set["move2"](self.player_poke)
             self.opponent_poke.defence *= def_down
-            print(f"Opponent's {self.opponent_poke.name} went down to {self.opponent_poke.defence}")
+            print(f"Opponent's {self.opponent_poke.name} defence went down to {self.opponent_poke.defence}")
+            self.win_loss()
+            if self.opponent_poke.hp >= 0:
+                self.opponent_turn()
             self.battle()
 
         elif ans == "C":
@@ -111,7 +116,7 @@ class TrainerBattle:
             else:
                 inventory.items["super potion"] = inventory.potion.use()
                 print("\nSuper Potion used to regain 50HP\n")
-                self.heal_20hp()
+                self.heal_50hp()
                 self.opponent_turn()
         elif ans == "C":
             self.battle()
@@ -131,7 +136,12 @@ class TrainerBattle:
                 self.use_items()
 
             elif ans == "C":
+                print("You reach for your waist and throw a pokeball")
+                tap()
+                print(f"{self.opponent_name} blocked it!")
+                tap()
                 print(f"{self.opponent_name} says: What do you think you're doing you can't steal my pokemon!")
+                tap()
                 self.battle()
             elif ans == "D":
                 print("You can't flee from a trainer battle!\n")

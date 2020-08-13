@@ -122,6 +122,7 @@ def player_pc():
         print("Mom really should give me an allowance...")
         Actions.tap()
         print("You exit back to the PC")
+        player_pc()
 
     elif ans == "Exit":  # Exit
         print("Exiting PC...")
@@ -133,8 +134,12 @@ def player_pc():
 
 
 def door():
-
+    print("You walk down the stairs and you see mom put down some food on the dining room table.")
+    Actions.tap()
+    print("Mom:  Hello dear! I just made you some breakfast!")
+    Actions.tap()
     print("""You enter the living room What would you like to do now?
+    
     \n[A] Eat Mom's delicious breakfast!
     \n[B] Talk to Mom.
     \n[C] Leave the house.""")
@@ -342,6 +347,8 @@ def poke_selection():
 
     elif ans == "B":  # choose Totodile
         print(" This is Totodile, a water type! Are you sure this is who you want? [Y] or [N]")
+        ans = input("> ")
+    if ans == "Y":
         print("You Chose Totodile!")
         Actions.tap()
         player_poke = poke_characters.totodile_l5
@@ -420,9 +427,13 @@ scratched for now, can be re-implemented after 1.0 release. after poke_lab2
 def rival(player_poke):
     # Rival Pokemon
     rival_poke = poke_characters.totodile_l5
-    # Rival Pokemon will reset HP before every encounter
-    # rival_poke.reset_stats()
 
+    # Rival Pokemon will reset HP before every encounter
+    rival_poke.reset_stats()
+    print("Congratulations! Now you ready to adventure out in the world as a pokemon trainer. ")
+    Actions.tap()
+    print("As you step out of the Lab you see someone waiting just around the corner")
+    Actions.tap()
     print(" A strange red haired trainer with a black jacket approaches you!")
     Actions.tap()
     dialouge.rival_diag_1()
@@ -578,7 +589,6 @@ player_name = player_config()
 
 # Mother introduction
 mom_intro_event(player_name)
-player_awake()
 
 
 # Player selects a pokemon if choice is invalid the function will re-call itself until answer is valid
