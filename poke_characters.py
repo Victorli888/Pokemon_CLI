@@ -127,6 +127,7 @@ class Pokemon:
 cyndiquil_l5 = Pokemon("Cyndiquil", 40, 40, 52, 52, 43, 43, 65)
 chikorita_l5 = Pokemon("Chikorita", 45, 45, 49, 49, 65, 65, 45)
 totodile_l5 = Pokemon("Totodile", 50, 50, 65, 65, 64, 64, 43)
+totodile_rival = Pokemon("Totodile", 50, 50, 65, 65, 64, 64, 43)
 
 scratch = Pokemon.scratch
 tackle = Pokemon.tackle

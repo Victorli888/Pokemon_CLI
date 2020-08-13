@@ -339,7 +339,7 @@ def poke_selection():
     ans = input("> ")
     if ans == "A":  # choose Cyndaquil
         print(" This is Cyndiquil, a fire type! Are you sure this is who you want? [Y] or [N]")
-    ans = input("> ")
+        ans = input("> ")
     if ans == "Y":
         print("You Chose Cyndiquil!")
         Actions.tap()
@@ -348,7 +348,7 @@ def poke_selection():
 
     elif ans == "B":  # choose Totodile
         print(" This is Totodile, a water type! Are you sure this is who you want? [Y] or [N]")
-    ans = input("> ")
+        ans = input("> ")
     if ans == "Y":
         print("You Chose Totodile!")
         Actions.tap()
@@ -357,7 +357,7 @@ def poke_selection():
 
     elif ans == "C":  # choose Chikorita
         print("This is Chikorita, a grass type! Are you sure this is who you want? [Y] or [N]")
-    ans = input("> ")
+        ans = input("> ")
     if ans == "Y":
         print("You chose Chikorita!")
         player_poke = poke_characters.chikorita_l5
@@ -427,10 +427,10 @@ scratched for now, can be re-implemented after 1.0 release. after poke_lab2
 
 def rival(player_poke):
     # Rival Pokemon
-    rival_poke = poke_characters.totodile_l5
+    rival_poke = poke_characters.totodile_rival
 
     # Rival Pokemon will reset HP before every encounter
-    # rival_poke.reset_stats()
+    rival_poke.reset_stats()
     print("Congratulations! Now you ready to adventure out in the world as a pokemon trainer. ")
     Actions.tap()
     print("As you step out of the Lab you see someone waiting just around the corner")
