@@ -13,12 +13,13 @@ every time the a battle is initiated.
 
 
 class TrainerBattle:
-    def __init__(self, opponent_name, opponent_poke, player_poke, move_set, move_names,):
+    def __init__(self, opponent_name, opponent_poke, player_poke, move_set, move_names, o_move_set):
         self.opponent_name = opponent_name
         self.opponent_poke = opponent_poke
         self.player_poke = player_poke
         self.move_set = move_set
         self.move_names = move_names
+        self.o_move_set = o_move_set
         print(f"\nOpponent sent out {opponent_poke.name}")
         print(f"You sent out {player_poke.name}\n")
 
@@ -55,7 +56,7 @@ class TrainerBattle:
 
     def opponent_turn(self):
         print("It is now opponent's " + self.opponent_poke.name + "'s turn!")
-        damage = self.move_set["move1"](self.opponent_poke)
+        damage = self.o_move_set["move1"](self.opponent_poke)
         tap()
         print(f"Opponent's {self.opponent_poke.name} did {damage} damage!")
         self.player_poke.hp -= damage
@@ -70,6 +71,7 @@ class TrainerBattle:
 
         if ans == "A":
             damage = self.move_set["move1"](self.player_poke)
+            tap()
             self.opponent_poke.hp -= damage
             self.current_hp()
             self.win_loss()
@@ -106,7 +108,7 @@ class TrainerBattle:
                 self.use_items()
             else:
                 inventory.items["potion"] = inventory.potion.use()
-                print("\nPotion used to regain 20HP\n")
+                print("\nPotion used to regain up tp 20HP\n")
                 self.heal_20hp()
                 self.opponent_turn()
         elif ans == "B":
@@ -115,7 +117,7 @@ class TrainerBattle:
                 self.use_items()
             else:
                 inventory.items["super potion"] = inventory.potion.use()
-                print("\nSuper Potion used to regain 50HP\n")
+                print("\nSuper Potion used to regain up to 50HP\n")
                 self.heal_50hp()
                 self.opponent_turn()
         elif ans == "C":

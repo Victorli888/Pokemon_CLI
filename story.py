@@ -443,8 +443,9 @@ def rival(player_poke):
         p_poke = poke_characters.cyndiquil_l5
         cy_moves = {"move1": poke_characters.tackle, "move2": poke_characters.smokescreen}
         cy_move_names = ["tackle", "smokescreen"]
+        o_toto_moves = {"move1": poke_characters.scratch, "move2": poke_characters.leer}
         # Battle Sequence
-        first_battle = trainer_battle.TrainerBattle("Rival Gary", rival_poke, p_poke, cy_moves, cy_move_names)
+        first_battle = trainer_battle.TrainerBattle("Rival Gary", rival_poke, p_poke, cy_moves, cy_move_names, o_toto_moves)
         player_poke = first_battle.battle()
         return player_poke
     elif player_poke == poke_characters.totodile_l5:
@@ -452,8 +453,9 @@ def rival(player_poke):
         p_poke = poke_characters.totodile_l5
         toto_moves = {"move1": poke_characters.scratch, "move2": poke_characters.leer}
         toto_move_names = ["scratch", "leer"]
+        o_toto_moves = {"move1": poke_characters.scratch, "move2": poke_characters.leer}
         # Battle Sequence
-        first_battle = trainer_battle.TrainerBattle("Rival Gary", rival_poke, p_poke, toto_moves, toto_move_names)
+        first_battle = trainer_battle.TrainerBattle("Rival Gary", rival_poke, p_poke, toto_moves, toto_move_names, o_toto_moves)
         player_poke = first_battle.battle()
         return player_poke
     elif player_poke == poke_characters.chikorita_l5:
@@ -461,8 +463,9 @@ def rival(player_poke):
         p_poke = poke_characters.chikorita_l5
         chika_moves = {"move1": poke_characters.tackle, "move2": poke_characters.growl}
         chika_move_names = ["tackle", "growl"]
+        o_toto_moves = {"move1": poke_characters.scratch, "move2": poke_characters.leer}
         # Battle Sequence
-        first_battle = trainer_battle.TrainerBattle("Rival Gary", rival_poke, p_poke, chika_moves, chika_move_names)
+        first_battle = trainer_battle.TrainerBattle("Rival Gary", rival_poke, p_poke, chika_moves, chika_move_names, o_toto_moves)
         p_poke = first_battle.battle()
         return p_poke
     else:
@@ -513,7 +516,6 @@ def pallet_town_2():
 
     elif ans == "B":  # For Westward Ocean Coastline
         print("You look left and you walk down the path to the Westward Ocean Coastline")
-        Actions.tap()
         westward_coast_2()
 
         pass  # Add method for the "West Ward Ocean Coast line", and loop back to outside world
@@ -575,6 +577,7 @@ def dock():
 
 
 def ship_cabin(player_poke):
+    Actions.tap()
     print(f"You open the door and take a load off. You watch {player_poke} and Toto play around the room.")
     print("As you sit down you feel your fatigue overwhelm you.")
     Actions.tap()
