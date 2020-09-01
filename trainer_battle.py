@@ -28,8 +28,8 @@ class TrainerBattle:
     """
 
     def current_hp(self):
-        print(f"Opponent's {self.opponent_poke.name} has {self.opponent_poke.hp} remaining")
-        print(f"Your {self.player_poke.name} has {self.player_poke.hp} remaining")
+        print(f"Opponent's {self.opponent_poke.name} has {self.opponent_poke.hp} hit points remaining")
+        print(f"Your {self.player_poke.name} has {self.player_poke.hp} hit points remaining")
         tap()
 
     def heal_20hp(self):
@@ -82,7 +82,7 @@ class TrainerBattle:
         elif ans == "B":
             def_down = self.move_set["move2"](self.player_poke)
             self.opponent_poke.defence *= def_down
-            print(f"Opponent's {self.opponent_poke.name} defence went down to {self.opponent_poke.defence}")
+            print(f"Opponent's {self.opponent_poke.name} Speed went down to {self.opponent_poke.defence}")
             self.win_loss()
             if self.opponent_poke.hp >= 0:
                 self.opponent_turn()
