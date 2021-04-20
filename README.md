@@ -5,7 +5,7 @@ This a short but sweet text adventure based off of a child classic Pokemon. It i
 where you are prompted for an input based off the situation.
 
 Features:
-* Multiple prompts to provide a more engagment to the player
+* Multiple prompts to provide better engagment to the player
 * Non-Linear text based adventure with back tracking and unlockable areas
 * Pokemon inspired battle sequences with RUN FIGHT BAG POKEBALL choices
 
