@@ -2,9 +2,12 @@
 
 # **:cyclone:  Pokemon Text Adventure v1.0**
 This a short but sweet text adventure based off of a child classic Pokemon. It includes a standard text adventure setup
-where you are prompted for an input based off the situation. However the twist is there is a battle portion that mirros
-the classic Pokemon Battle UI. in the 1.1 drop of this game I intend to add Grass to walk through and wild pokemon
-to capture and a storage system for the captured pokemon.
+where you are prompted for an input based off the situation.
+
+Features:
+* Multiple prompts to provide a more engagment to the player
+* Non-Linear text based adventure with back tracking and unlockable areas
+* Pokemon inspired battle sequences with RUN FIGHT BAG POKEBALL choices
 
 ## **Getting Started**
 git clone the entire repository into local storage and using terminal commands change the directory to /Pokemon.
